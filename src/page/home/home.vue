@@ -1,7 +1,7 @@
 <template>
     <div>
       <head-top></head-top>
-      <div>banner...</div>
+      <div>banner...ddddd</div>
       <foot-guide></foot-guide>
     </div>
 </template>
