@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="footer w1200">
+  <div class="footer">
+    <div class="container">
       <div class="left-con">
         <ul class="link-div">
           <li><router-link to="/news">新闻动态</router-link></li>
@@ -77,5 +77,15 @@
   }
   .telephone p{
     margin-top: 0;
+  }
+  .footer{
+    padding: 40px 0;
+  }
+  .footer:after, .footer:before{
+    content: '';
+    display: block;
+  }
+  .footer:after, .footer:before{
+    clear: both;
   }
 </style>

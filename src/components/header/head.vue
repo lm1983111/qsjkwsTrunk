@@ -1,7 +1,7 @@
 <template>
     <div>
       <header id="header_top">
-        <div class="header-wrap w1200">
+        <div class="header-wrap container">
           <div class="logo"></div>
           <div class="nav-div">
             <router-link to="/home">首页</router-link>
@@ -47,6 +47,7 @@
     text-decoration: none;
     color: #666;
     margin-left: 55px;
+    font-size: 16px;
   }
   .nav-div a:hover{
     color: red;
