@@ -328,7 +328,7 @@
     top: 0;
     z-index: 10;
     float: right;
-    background-color: red;
+    background-color: #ea1b23;
   }
   [class^="home-flo"]:after, [class*=" home-flo"]:after, [class^="home-flo"]:after, [class*=" home-flo"]:before{
     content: '';
@@ -356,7 +356,7 @@
   .flo4-con-text{
     position: relative;
     font-size: 40px;
-    color: red;
+    color: #ea1b23;
     font-weight: normal;
     letter-spacing: 50px;
     top: 190px;

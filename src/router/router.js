@@ -22,7 +22,14 @@ export default [
       },
       {
         path: '/news',
-        component: news
+        component: news,
+        children: [
+          /*{
+            path: '',
+            component: aaa
+          },*/
+
+        ]
       },
       {
         path: '/products',
