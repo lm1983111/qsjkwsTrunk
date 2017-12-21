@@ -18,7 +18,7 @@
       <!--千山健康慢病管理与服务平台-->
       <div class="home-flo2">
         <div class="container">
-          <h2 class="flo-title center">千山健康慢病管理与服务平台</h2>
+          <div class="flo-title center">千山健康慢病管理与服务平台</div>
           <p class="center">千山健康慢病管理与服务平台</p>
           <div class="home-flo2-con">
             <div class="flo2-item">
@@ -66,7 +66,7 @@
       <div class="home-flo3">
         <div class="container">
           <div class="flo3-left">
-            <h2 class="flo-title">关于我们</h2>
+            <div class="flo-title">关于我们</div>
             <p class="">湖南千山慢病健康管理有限公司 ( 简称“千山健康” ) 是上市公司千山药机 ( 股票代码：300216 ) 控股子公司，公司旗下的千山慢病精准管理与服务中心项目计划总投资50亿元，投资建设期四年，项目建成后，可形成每年为 300 万名慢病患者提供服务的能力。
               公司致力于高血压等慢性病防治与健康管理服务，开发的“千山降压”APP，依托周宏灏院士研发的个体化用药基因检测技术和国内领先的智能血压计等可穿戴设备，能实现对高血压病人的精准用药指导、动态血压监测和健康智能管理。</p>
           </div>
@@ -83,11 +83,11 @@
       <div class="home-flo4">
         <div class="container">
           <div class="flo4-nav">
-            <h2 class="flo-title"> 高血压个体化治疗基因检测</h2>
+            <div class="flo-title"> 高血压个体化治疗基因检测</div>
             <p>国内首家注册高血压个体化治疗基因检测芯片</p>
           </div>
           <div class="flo4-con">
-            <h2 class="flo4-con-text"> 院士研发/专业权威</h2>
+            <div class="flo4-con-text"> 院士研发/专业权威</div>
           </div>
         </div>
       </div>
@@ -100,9 +100,11 @@
               <div class="bx-viewport">
                 <ul class="content_list">
                   <li class="item_block">
-                    <h2 class="flo-title">特色服务</h2>
-                    <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    <div class="item_div_wrapper">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
                       <div class="item_img">
                         <img src="../../images/flo5_item1.jpg"/>
                       </div>
@@ -134,26 +136,54 @@
         </div>
       </div>
 
+      <!--智能可穿戴设备-->
+      <div class="home-flo6">
+        <div class="container">
+          <div class="section-r-info">
+            <div class="flo-title">  智能可穿戴医疗设备</div>
+            <p class="flo-desc">可以帮助高血压患者实现全天 24 小时血压监测和数据采集，清除监测盲点，帮助患者了解自身血压变化动态有助于患者实现精准服药与血压精准控制</p>
+            <div class="mt45">
+              <a href="" class="f18 red-btn">MORE</a>
+            </div>
+          </div>
+          <div class="flo6-con">
+            <div class="flo6-con-img">
+              <img src="../../images/flo6_products.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!--千山智库-->
-      <div class="chnsun-scholar">
-        <swiper :options="swiperOption2" ref="mySwiper">
-          <!-- slides -->
-          <swiper-slide>
-            <img src="../../images/scholar1.jpg"/>
-            <!--<div class="scholar-portrait" style="background-image: url('../../images/scholar1.jpg')"></div>-->
-            <!--<h2>周宏灏</h2>
-            <p>中国工程院院士</p>-->
-          </swiper-slide>
-          <swiper-slide>I'm Slide 2</swiper-slide>
-          <swiper-slide>I'm Slide 3</swiper-slide>
-          <swiper-slide>I'm Slide 4</swiper-slide>
-          <swiper-slide>I'm Slide 5</swiper-slide>
-          <swiper-slide>I'm Slide 6</swiper-slide>
-          <swiper-slide>I'm Slide 7</swiper-slide>
-          <!-- Optional controls -->
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+      <div class="home-flo7 chnsun-scholar">
+        <div class="container">
+          <div class="section-l-info">
+            <div class="flo-title">  千山智库</div>
+            <p class="flo-desc">以“院士团”“专家团”“博士团”为核心，为慢性病患者
+              提供专业的健康管理服务，帮助患者回归健康、轻松生活。</p>
+          </div>
+        </div>
+        <div class="swiper-all-wrap">
+          <swiper :options="swiperOption2" ref="mySwiper">
+            <!-- slides -->
+            <swiper-slide>
+              <img src="../../images/scholar1.jpg"/>
+              <!--<div class="scholar-portrait" style="background-image: url('../../images/scholar1.jpg')"></div>-->
+              <!--<div>周宏灏</div>
+              <p>中国工程院院士</p>-->
+            </swiper-slide>
+            <swiper-slide>I'm Slide 2</swiper-slide>
+            <swiper-slide>I'm Slide 3</swiper-slide>
+            <swiper-slide>I'm Slide 4</swiper-slide>
+            <swiper-slide>I'm Slide 5</swiper-slide>
+            <swiper-slide>I'm Slide 6</swiper-slide>
+            <swiper-slide>I'm Slide 7</swiper-slide>
+            <!-- Optional controls -->
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+          </swiper>
+        </div>
+
       </div>
       <foot-guide></foot-guide>
     </div>
@@ -254,6 +284,15 @@
     -ms-flex-align: center;
     align-items: center;
   }
+  .home-flo7{
+    width: 100%;
+    background-color: #eee;
+    padding:80px 0 35px 0;
+    height: 600px;
+  }
+  .swiper-all-wrap{
+    margin-top: 100px;
+  }
   .scholar-portrait{
     height: 290px;
     width: 280px;
@@ -295,10 +334,10 @@
   .home-flo3{
     width: 100%;
     background-image: url("../../images/flo3_bg.png");
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     padding:80px 0 100px 0;
-    height: 400px;
+    height: 600px;
   }
   .flo3-left{
     width: 370px;
@@ -327,7 +366,6 @@
     right: 0;
     top: 0;
     z-index: 10;
-    float: right;
     background-color: #ea1b23;
   }
   [class^="home-flo"]:after, [class*=" home-flo"]:after, [class^="home-flo"]:after, [class*=" home-flo"]:before{
@@ -340,10 +378,10 @@
   .home-flo4{
     width: 100%;
     background-image: url("../../images/flo4_bg.jpg");
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     padding:80px 0 100px 0;
-    height: 420px;
+    height: 600px;
   }
   .flo4-nav{
     position: absolute;
@@ -364,10 +402,10 @@
   .home-flo5{
     width: 100%;
     background-image: url("../../images/flo5_bg.jpg");
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     padding:80px 0 100px 0;
-    height: 420px;
+    height: 600px;
   }
   .flo5-con{
     width: 1025px;
@@ -471,4 +509,39 @@
     opacity: 1;
     border: 1px solid #ddd;
   }
+  .home-flo6{
+    width: 100%;
+    background-image: url("../../images/flo6_bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding:80px 0 100px 0;
+    height: 600px;
+  }
+  .flo6-con{
+    position: absolute;
+    left: 50px;
+    top: 20px;
+  }
+  .section-l-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 370px;
+    text-align: left;
+  }
+  .section-r-info{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 370px;
+    text-align: right;
+  }
+  .flo-desc{
+    line-height: 1.5;
+  }
+  .flo-lt-desc{
+  }
+
+
+
 </style>

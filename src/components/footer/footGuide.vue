@@ -80,6 +80,7 @@
   }
   .footer{
     padding: 40px 0;
+    border-top:1px solid #ddd
   }
   .footer:after, .footer:before{
     content: '';

@@ -1,7 +1,60 @@
 <template>
-  <div>
+  <div class="products-page">
     <head-top></head-top>
-chanp....
+    <section class="common-banner"></section>
+    <section class="news-crumbs">
+      <p class="container crumbs-p">您的位置：首页 > <span class="red">产品中心</span></p>
+    </section>
+    <section class="category-nav clearfix">
+      <ul class="container category-nav-ul">
+        <li v-for="" v-on:click="getProductsList('1')" class="cur">
+          <span>全部</span>
+        </li>
+        <li v-for="" v-on:click="getProductsList('2')" :class="">
+          <span>智能设备</span>
+        </li>
+      </ul>
+    </section>
+    <section class="products-list-section clearfix">
+      <div class="container">
+        <div class="products-item">
+          <div class="products-img">
+            <img src="../../images/products01.jpg"/>
+          </div>
+          <div class="products-block">
+            <div class="products-info">
+              <div class="title">智能动态血压计</div>
+              <div class="spec">型号：<span>BPM07</span></div>
+            </div>
+            <div class="products-arrow"></div>
+          </div>
+        </div>
+        <div class="products-item">
+          <div class="products-img">
+            <img src="../../images/products02.jpg"/>
+          </div>
+          <div class="products-block">
+            <div class="products-info">
+              <div class="title">智能动态血压计</div>
+              <div class="spec">型号：<span>BPM07</span></div>
+            </div>
+            <div class="products-arrow"></div>
+          </div>
+        </div>
+        <div class="products-item">
+          <div class="products-img">
+            <img src="../../images/products03.jpg"/>
+          </div>
+          <div class="products-block">
+            <div class="products-info">
+              <div class="title">智能动态血压计</div>
+              <div class="spec">型号：<span>BPM07</span></div>
+            </div>
+            <div class="products-arrow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <foot-guide></foot-guide>
   </div>
 </template>
@@ -13,10 +66,54 @@ chanp....
     components: {
       headTop,
       footGuide
+    },
+    methods:{
+      getProductsList:function(id){
+        alert(id)
+      }
     }
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  @import "../../style/mixin.scss";
+  .products-item{
+    position: relative;
+    width: 30%;
+    margin: 0 3% 3% 0;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .products-img{
+  }
+  .products-img img{
+    width: 100%;
+  }
+  .products-block{
+    background-color: white;
+    position: relative;
+  }
+  .products-item:hover .products-block{
+    color: white;
+    background-color: $red;
+  }
+  .products-info{
+    padding: 20px 60px 20px 25px;
+  }
+  .products-info .title{
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .products-arrow{
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    margin-top: -15px;
+    background-image:url("../../images/arrow-right.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+  }
 </style>

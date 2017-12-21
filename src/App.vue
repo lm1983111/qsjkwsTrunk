@@ -9,58 +9,36 @@ export default {
 }
 </script>
 
-<style>
-  *{
-    margin: 0;
-    padding: 0;
+<style lang="scss">
+  @import "style/mixin";
+  @import "style/normalize.css";
+  @import "style/common";
+  .common-banner{
+    display: block;
+    height: 260px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
-  .red{
-    color: #ea1b23;
+  .news-page .common-banner{
+    background-image: url("./images/news_page_banner.jpg");
   }
-  body {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    font-size: 14px;
+  .products-page .common-banner{
+    background-image: url("./images/products_banner.jpg");
   }
-  @media (min-width: 992px){
-    .container {
-      width: 970px;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-      position: relative;
-    }
+  .recruit-page .common-banner{
+    background-image: url("./images/recruit_banner.jpg");
   }
-  @media (min-width: 1200px){
-    .container {
-      width: 1170px;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-      position: relative;
-    }
+  .about-page .common-banner{
+    background-image: url("./images/about_banner.jpg");
   }
-
-
-  ul,li{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .news-crumbs{
+    width: 100%;
+    height: 85px;
   }
-  .fs12{
-    font-size: 12px;
-  }
-  .fs14{
-    font-size: 14px;
-  }
-  p{
-    line-height: 1.5;
-    color: #999;
+  .crumbs-p{
+    position: relative;
+    top: 30px;
   }
 </style>
