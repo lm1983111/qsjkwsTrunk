@@ -164,24 +164,25 @@
           </div>
         </div>
         <div class="swiper-all-wrap">
-          <swiper :options="swiperOption2" ref="mySwiper">
-            <!-- slides -->
-            <swiper-slide>
-              <img src="../../images/scholar1.jpg"/>
-              <!--<div class="scholar-portrait" style="background-image: url('../../images/scholar1.jpg')"></div>-->
-              <!--<div>周宏灏</div>
-              <p>中国工程院院士</p>-->
-            </swiper-slide>
+          <!--<swiper :options="swiperOption2" ref="mySwiper">
+            <swiper-slide>I'm Slide 1</swiper-slide>
             <swiper-slide>I'm Slide 2</swiper-slide>
             <swiper-slide>I'm Slide 3</swiper-slide>
             <swiper-slide>I'm Slide 4</swiper-slide>
             <swiper-slide>I'm Slide 5</swiper-slide>
             <swiper-slide>I'm Slide 6</swiper-slide>
             <swiper-slide>I'm Slide 7</swiper-slide>
-            <!-- Optional controls -->
             <div class="swiper-button-prev" slot="button-prev"></div>
             <div class="swiper-button-next" slot="button-next"></div>
-          </swiper>
+          </swiper>-->
+          <carousel>
+            <slide>
+              Slide 1 Content
+            </slide>
+            <slide>
+              Slide 2 Content
+            </slide>
+          </carousel>
         </div>
 
       </div>
@@ -195,6 +196,7 @@
   import {baseUrl} from "../../config/env";
   import '../../style/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import { Carousel, Slide } from 'vue-carousel';
 
   export default {
     data() {
@@ -210,7 +212,7 @@
           },
         },
         swiperSlides: [],
-        swiperOption2: {
+        /*swiperOption2: {
           slidesPerView: 4,
           spaceBetween: 25,
           pagination: {
@@ -231,14 +233,16 @@
               spaceBetween: 10,
             }
           }
-        },
+        },*/
       }
     },
     components: {
       headTop,
       footGuide,
       swiper,
-      swiperSlide
+      swiperSlide,
+      Carousel,
+      Slide
     },
     mounted() {
       this.initData()
@@ -293,12 +297,12 @@
   .swiper-all-wrap{
     margin-top: 100px;
   }
-  .scholar-portrait{
+  /*.scholar-portrait{
     height: 290px;
     width: 280px;
     background-size: contain;
     background-repeat: no-repeat;
-  }
+  }*/
   .home-flo2{
     width: 100%;
     background-color: #fff;
@@ -542,6 +546,27 @@
   .flo-lt-desc{
   }
 
+  /*vue-carousel*/
+  #container {
+    padding: 0 60px;
+  }
+
+  .VueCarousel-slide {
+    position: relative;
+    background: #42b983;
+    color: #fff;
+    font-family: Arial;
+    font-size: 24px;
+    text-align: center;
+    min-height: 100px;
+  }
+
+  .label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 
 </style>

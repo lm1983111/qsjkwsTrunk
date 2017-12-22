@@ -7,7 +7,7 @@
     </section>
     <section class="category-nav clearfix">
       <ul class="container category-nav-ul">
-        <li v-for="item in newsType" v-on:click="getNewsList(item.id)">
+        <li v-for="item in newsType" v-on:click="setNewsType(item.id)">
           <span>{{item.typeName}}</span>
         </li>
       </ul>
@@ -43,21 +43,8 @@
       </ul>
     </section>
     <section class="pagination-section">
-      <ul>
-        <li v-if="showPre"><a v-on:click="jumpFirst(cur)">首页</a></li>
-        <li v-if="showPre"><a v-on:click="minus(cur)">上一页</a></li>
-
-        <!--<template v-for="index in indexs">
-          <li class="{{classRenderer(index)}}">
-            <a v-on:click="btnClick(index)" >{{index}}</a>
-          </li>
-        </template>-->
-
-        <li v-if="showMoreTail">..</li>
-        <!--<li class="{{classRenderer(pageNo)}}"><a v-on:click="btnClick(pageNo)">{{pageNo}}</a></li>-->
-        <li v-if="showTail"><a v-on:click="plus(cur)">下一页</a></li>
-        <li v-if="showTail"><a v-on:click="jumpTail(cur)">尾页</a></li>
-      </ul>
+      <v-pagination :total-count = "totalCount" :page-num = "pageNum" @pagechange = 'pagechange'></v-pagination>
+      <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
     </section>
     <foot-guide></foot-guide>
   </div>
@@ -66,19 +53,21 @@
 <script>
   import headTop from '../../components/header/head'
   import footGuide from '../../components/footer/footGuide'
+  import pagination from '../../components/common/pagination'
   import {baseUrl} from "../../config/env";
 
   export default {
     components: {
       headTop,
-      footGuide
+      footGuide,
+      'v-pagination':pagination
     },
     data(){
       return{
-        showPre:true,
-        showTail:true,
-        showMoreTail:false,
-        pageNo:null,
+        totalCount: null,
+        pageSize: 10,
+        pageNum: 1,
+        type:null,
         newsType:[],
         dataList:[],
       }
@@ -92,24 +81,30 @@
           this.newsType = res.body.newsTypes
         })
       },
-      getNewsList:function(id){
-        this.$http.jsonp(baseUrl+'news/getNews',{jsonpcallback:'',params:{pageNum:1,pageSize:8,type:id}}).then(res => {
+      getNewsList:function(){
+        this.$http.jsonp(baseUrl+'news/getNews',{jsonpcallback:'',params:{pageNum:this.pageNum,pageSize:this.pageSize,type:this.type}}).then(res => {
           this.dataList = res.body.dataList
+          console.log(res.body)
+          this.totalCount = res.body.totalCount;
+          this.pageNum = res.body.currentPage;
+          /*console.log('this.totalCount:',this.totalCount)
+          console.log('this.pageSize:',this.pageSize)*/
+          console.log('this.pageNum:',this.pageNum)
+          console.log('this.type:',this.type)
         })
       },
-      jumpFirst:function(cur){},
-      minus:function(cur){},
-      classRenderer:function(index){
-        var $this = this;
-        var cur = $this.cur
-        if(index != cur){
-          return 'crt';
-        }
-        return '';
+      setNewsType:function(id){
+        this.type = id;
+        this.pageNum = 1;
+        this.getNewsList()
       },
-      plus:function(cur){},
-      jumpTail:function(cur){},
-      btnClick:function(pageNo){},
+      pagechange:function(currentPage){
+        //currentPage就是子组件传过来的
+        console.log('currentPage : ',currentPage)
+        this.pageNum = currentPage;
+        //开始ajax请求..........
+        this.getNewsList()
+      }
     },
     computed:{
 
