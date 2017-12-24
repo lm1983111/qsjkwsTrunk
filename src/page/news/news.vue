@@ -7,7 +7,7 @@
     </section>
     <section class="category-nav clearfix">
       <ul class="container category-nav-ul">
-        <li v-for="item in newsType" v-on:click="setNewsType(item.id)">
+        <li v-for="item in newsType" v-on:click="setNewsType(item.id)" :class="{'cur': type == item.id}">
           <span>{{item.typeName}}</span>
         </li>
       </ul>
@@ -21,7 +21,7 @@
               <div class="small">2017</div>
             </div>
             <div class="center-news-div">
-              <div class="news-title">{{item.title}}</div>
+              <router-link :to="'/news/'+item.id" class="news-title" target="_blank">{{item.title}}</router-link>
               <p class="news-desc">{{item.descr}}</p>
             </div>
             <div class="right-control"></div>
@@ -47,14 +47,17 @@
       <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
     </section>
     <foot-guide></foot-guide>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+  import $ from 'jquery'
   import headTop from '../../components/header/head'
   import footGuide from '../../components/footer/footGuide'
   import pagination from '../../components/common/pagination'
   import {baseUrl} from "../../config/env";
+
 
   export default {
     components: {
@@ -75,33 +78,37 @@
     mounted(){
       this.getNewsType();
     },
+    watch:{
+      newsType:function(){
+        this.getNewsList()
+      }
+    },
     methods:{
       getNewsType:function(){
         this.$http.jsonp(baseUrl+'news/queryAllNewsType',{jsonpcallback:''}).then(res => {
-          this.newsType = res.body.newsTypes
+          if(res.body.newsTypes.length > 0){
+            this.newsType = res.body.newsTypes
+            this.type = res.body.newsTypes[0].id
+          }
         })
       },
       getNewsList:function(){
         this.$http.jsonp(baseUrl+'news/getNews',{jsonpcallback:'',params:{pageNum:this.pageNum,pageSize:this.pageSize,type:this.type}}).then(res => {
           this.dataList = res.body.dataList
-          console.log(res.body)
           this.totalCount = res.body.totalCount;
           this.pageNum = res.body.currentPage;
-          /*console.log('this.totalCount:',this.totalCount)
-          console.log('this.pageSize:',this.pageSize)*/
-          console.log('this.pageNum:',this.pageNum)
-          console.log('this.type:',this.type)
         })
       },
       setNewsType:function(id){
         this.type = id;
         this.pageNum = 1;
+        console.log('父组件下发给pagination的pageNum: ',this.pageNum)
         this.getNewsList()
       },
-      pagechange:function(currentPage){
-        //currentPage就是子组件传过来的
-        console.log('currentPage : ',currentPage)
-        this.pageNum = currentPage;
+      pagechange:function(pageNum){
+        //pageNum就是子组件传过来的this.current
+        console.log('pageNum : ',pageNum)
+        this.pageNum = pageNum;
         //开始ajax请求..........
         this.getNewsList()
       }

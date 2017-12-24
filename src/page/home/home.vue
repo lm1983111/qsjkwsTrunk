@@ -164,25 +164,73 @@
           </div>
         </div>
         <div class="swiper-all-wrap">
-          <!--<swiper :options="swiperOption2" ref="mySwiper">
-            <swiper-slide>I'm Slide 1</swiper-slide>
-            <swiper-slide>I'm Slide 2</swiper-slide>
-            <swiper-slide>I'm Slide 3</swiper-slide>
-            <swiper-slide>I'm Slide 4</swiper-slide>
-            <swiper-slide>I'm Slide 5</swiper-slide>
-            <swiper-slide>I'm Slide 6</swiper-slide>
-            <swiper-slide>I'm Slide 7</swiper-slide>
-            <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-button-next" slot="button-next"></div>
-          </swiper>-->
-          <carousel>
-            <slide>
-              Slide 1 Content
-            </slide>
-            <slide>
-              Slide 2 Content
-            </slide>
-          </carousel>
+          <swiper :options="swiperOption2">
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar1.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar2.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar3.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar4.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar4.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar4.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="top-block">
+                <img src="../../images/scholar4.jpg"/>
+              </div>
+              <div class="bottom-block">
+                <div class="title">周宏灏</div>
+                <div class="desc">中国工程院士</div>
+              </div>
+            </swiper-slide>
+          </swiper>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
         </div>
 
       </div>
@@ -196,7 +244,6 @@
   import {baseUrl} from "../../config/env";
   import '../../style/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import { Carousel, Slide } from 'vue-carousel';
 
   export default {
     data() {
@@ -212,7 +259,7 @@
           },
         },
         swiperSlides: [],
-        /*swiperOption2: {
+        swiperOption2: {
           slidesPerView: 4,
           spaceBetween: 25,
           pagination: {
@@ -223,7 +270,7 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           },
-          breakpoints: {
+          /*breakpoints: {
             1024: {
               slidesPerView: 2,
               spaceBetween: 40,
@@ -232,8 +279,8 @@
               slidesPerView: 1,
               spaceBetween: 10,
             }
-          }
-        },*/
+          }*/
+        },
       }
     },
     components: {
@@ -241,8 +288,6 @@
       footGuide,
       swiper,
       swiperSlide,
-      Carousel,
-      Slide
     },
     mounted() {
       this.initData()
@@ -263,7 +308,8 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../../style/mixin";
   .home-banner .swiper-container {
     height: 515px;
     width: 100%;
@@ -295,7 +341,49 @@
     height: 600px;
   }
   .swiper-all-wrap{
+    position: relative;
+    width: 1375px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 100px;
     margin-top: 100px;
+  }
+  .swiper-all-wrap .swiper-button-prev, .swiper-all-wrap .swiper-button-next{
+    height: 106px;
+    width: 86px;
+    margin-top: -53px;
+    background-color: #eae9e9;
+  }
+  .swiper-all-wrap .swiper-button-prev:hover, .swiper-all-wrap .swiper-button-next:hover{
+    background-color: $red;
+  }
+  .swiper-all-wrap .swiper-button-disabled:hover{
+    background-color: transparent !important;
+  }
+  .swiper-all-wrap .swiper-slide{
+    position: relative;
+    display: block;
+    background-color: white;
+  }
+  .swiper-slide .top-block{
+    width: 100%;
+    height: 290px;
+    overflow: hidden;
+  }
+  .swiper-slide img{
+    width: 100%;
+  }
+  .swiper-slide .bottom-block{
+    padding:30px 10px;
+  }
+  .swiper-slide .bottom-block .title{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .swiper-slide .bottom-block .desc{
+    font-size: 12px;
+    color: #999;
   }
   /*.scholar-portrait{
     height: 290px;

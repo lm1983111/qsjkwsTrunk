@@ -2,6 +2,7 @@ import App from '../App'
 
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const news = r => require.ensure([], () => r(require('../page/news/news')), 'news')
+const newsDetail = r => require.ensure([], () => r(require('../page/news/newsDetail')), 'newsDetail')
 const products = r => require.ensure([], () => r(require('../page/products/products')), 'products')
 const recruit= r => require.ensure([], () => r(require('../page/recruit/recruit')), 'recruit')
 const about = r => require.ensure([], () => r(require('../page/about/about')), 'about')
@@ -23,13 +24,10 @@ export default [
       {
         path: '/news',
         component: news,
-        children: [
-          /*{
-            path: '',
-            component: aaa
-          },*/
-
-        ]
+      },
+      {
+        path: '/news/:id',
+        component: newsDetail,
       },
       {
         path: '/products',
