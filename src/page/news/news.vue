@@ -3,7 +3,9 @@
     <head-top></head-top>
     <section class="common-banner"></section>
     <section class="news-crumbs">
-      <p class="container crumbs-p">您的位置：首页 > <span class="red">新闻动态</span></p>
+      <p class="container crumbs-p">您的位置：
+        <router-link to="/home">首页</router-link>
+        > <span class="red">新闻动态</span></p>
     </section>
     <section class="category-nav clearfix">
       <ul class="container category-nav-ul">
@@ -47,7 +49,7 @@
       <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
     </section>
     <foot-guide></foot-guide>
-    <router-view></router-view>
+    <!--<router-view></router-view>-->
   </div>
 </template>
 

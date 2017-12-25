@@ -6,6 +6,9 @@ const newsDetail = r => require.ensure([], () => r(require('../page/news/newsDet
 const products = r => require.ensure([], () => r(require('../page/products/products')), 'products')
 const recruit= r => require.ensure([], () => r(require('../page/recruit/recruit')), 'recruit')
 const about = r => require.ensure([], () => r(require('../page/about/about')), 'about')
+const tonometer = r => require.ensure([], () => r(require('../page/products/tonometer')), 'tonometer')
+const watch = r => require.ensure([], () => r(require('../page/products/watch')), 'watch')
+const gene = r => require.ensure([], () => r(require('../page/products/gene')), 'gene')
 
 export default [
   {
@@ -31,7 +34,33 @@ export default [
       },
       {
         path: '/products',
-        component: products
+        component: products,
+        /*children:[
+          {
+            path:'tonometer',
+            component: tonometer
+          },
+          {
+            path:'watch',
+            component: watch
+          },
+          {
+            path:'gene',
+            component: gene
+          },
+        ]*/
+      },
+      {
+        path: '/products/tonometer',
+        component: tonometer
+      },
+      {
+        path: '/products/watch',
+        component: watch
+      },
+      {
+        path: '/products/gene',
+        component: gene
       },
       {
         path: '/recruit',

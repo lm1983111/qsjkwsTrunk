@@ -3,21 +3,20 @@
     <head-top></head-top>
     <section class="common-banner"></section>
     <section class="news-crumbs">
-      <p class="container crumbs-p">您的位置：首页 > <span class="red">产品中心</span></p>
+      <p class="container crumbs-p">您的位置：
+        <router-link to="/home">首页</router-link>
+        > <span class="red">产品中心</span></p>
     </section>
     <section class="category-nav clearfix">
       <ul class="container category-nav-ul">
-        <li v-for="" v-on:click="getProductsList('1')" class="cur">
+        <li class="cur">
           <span>全部</span>
-        </li>
-        <li v-for="" v-on:click="getProductsList('2')" :class="">
-          <span>智能设备</span>
         </li>
       </ul>
     </section>
     <section class="products-list-section clearfix">
       <div class="container">
-        <div class="products-item">
+        <router-link to="/products/tonometer" class="products-item" target="_blank">
           <div class="products-img">
             <img src="../../images/products01.jpg"/>
           </div>
@@ -28,8 +27,8 @@
             </div>
             <div class="products-arrow"></div>
           </div>
-        </div>
-        <div class="products-item">
+        </router-link>
+        <router-link to="products/watch" class="products-item" target="_blank">
           <div class="products-img">
             <img src="../../images/products02.jpg"/>
           </div>
@@ -40,8 +39,8 @@
             </div>
             <div class="products-arrow"></div>
           </div>
-        </div>
-        <div class="products-item">
+        </router-link>
+        <router-link to="products/gene" class="products-item" target="_blank">
           <div class="products-img">
             <img src="../../images/products03.jpg"/>
           </div>
@@ -52,7 +51,7 @@
             </div>
             <div class="products-arrow"></div>
           </div>
-        </div>
+        </router-link>
       </div>
     </section>
     <foot-guide></foot-guide>
@@ -62,15 +61,15 @@
 <script>
   import headTop from '../../components/header/head'
   import footGuide from '../../components/footer/footGuide'
+  import tonometer from '../../page/products/tonometer'
   export default {
     components: {
       headTop,
-      footGuide
+      footGuide,
+      tonometer
     },
     methods:{
-      getProductsList:function(id){
-        alert(id)
-      }
+
     }
   }
 </script>
