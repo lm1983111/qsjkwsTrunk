@@ -98,10 +98,129 @@
           <div class="flo5-con">
             <div class="bx-wrapper">
               <div class="bx-viewport">
-                <ul class="content_list">
-                  <li class="item_block">
+                <ul class="content_list" id="conUl">
+                  <li data-block-id="0" class="item_block">
                     <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务</div>
+                      <div class="flo-title">特色服务0</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="2" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务2</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="3" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务3</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="5" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务5</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="7" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务7</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="8" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务8</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="11" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务11</div>
+                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                    </div>
+                    <div class="item_div_wrapper clearfix">
+                      <div class="item_img">
+                        <img src="../../images/flo5_item1.jpg"/>
+                      </div>
+                      <div class="item_wrapper">
+                        <div class="item_info">
+                          <p class="flo-title2">精准医疗</p>
+                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li data-block-id="12" class="item_block">
+                    <div class="flo-lt-desc">
+                      <div class="flo-title">特色服务12</div>
                       <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
                     </div>
                     <div class="item_div_wrapper clearfix">
@@ -122,15 +241,18 @@
           </div>
           <div class="flo5-btn">
             <div class="btn-wrapper">
-              <a class="bx-prev" href=""><i class="fa fa-angle-left">上</i></a>
-              <ul class="bx-btn-ul">
-                <li><a>精准医疗</a></li>
-                <li><a class="cur">健康管理</a></li>
-                <li><a>数据监测</a></li>
-                <li><a>其它选项</a></li>
-                <li><a>其它的的</a></li>
+              <span class="bx-prev" id="preCtr"><i class="fa fa-angle-left">上</i></span>
+              <ul class="bx-btn-ul" id="controlUl">
+                <li data-block-id="0"><span>精准医疗</span></li>
+                <li data-block-id="2"><span>健康管理</span></li>
+                <li data-block-id="3"><span>数据监测</span></li>
+                <li data-block-id="5"><span>其它项一</span></li>
+                <li data-block-id="7"><span>其它项二</span></li>
+                <li data-block-id="8"><span>其它项三</span></li>
+                <li data-block-id="11"><span>其它项四</span></li>
+                <li data-block-id="12"><span>其它项五</span></li>
               </ul>
-              <a class="bx-next" href=""><i class="fa fa-angle-right">下</i></a>
+              <span class="bx-next" id="nextCtr"><i class="fa fa-angle-right">下</i></span>
             </div>
           </div>
         </div>
@@ -239,6 +361,7 @@
 </template>
 
 <script>
+  import $ from 'jquery'
   import headTop from '../../components/header/head'
   import footGuide from '../../components/footer/footGuide'
   import {baseUrl} from "../../config/env";
@@ -290,7 +413,32 @@
       swiperSlide,
     },
     mounted() {
-      this.initData()
+      this.initData();
+      //
+      var indexNum = 0; //默认控制按钮cur第一项
+      var defaultShowNum = 3; //默认显示3项
+      var blockItemHeight = $('#controlUl li').height()
+      $(".bx-btn-ul").css({"height":blockItemHeight*3,"overflow":"hidden"})
+      var controlUl = $('#controlUl')
+      var controlUlLi = $('#controlUl li')
+      var indexArr = [];
+      for(let i = 0; i<controlUlLi.length; i++){
+        var datai = $(controlUlLi[i]).attr('data-block-id')
+        indexArr.push(datai)
+      }
+      console.log(indexArr)
+      //根据indexNum值渲染ui
+      function viewUi(indexNum){
+        controlUl.find('li[data-block-id='+indexArr[indexNum]+']').addClass('cur')
+
+      }
+      viewUi(indexNum)
+
+      //注册事件
+      $(document).on('click','#controlUl li',function(){
+        alert($(this).attr('data-block-id'))
+
+      })
     },
     methods: {
       initData(){
@@ -577,13 +725,13 @@
     padding: 0;
     overflow: hidden;
   }
-  .bx-prev, .bx-next, .bx-btn-ul li a{
+  .bx-prev, .bx-next, .bx-btn-ul li{
     width: 100%;
     height: 80px;
     line-height: 80px;
     text-align: center;
     display: block;
-    background: rgba(255,255,255,.4);
+    background: rgba(255,255,255,0.4);
     cursor: pointer;
     box-sizing:border-box;
   }
@@ -591,15 +739,21 @@
     background-color: #ea1b23;
     opacity: 1;
   }
-  .bx-btn-ul li a{
-    color: #333;
-    border-bottom: 1px solid transparent;
-    font-size: 20px;
+  .bx-btn-ul li{
+    color: #666;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(255,255,255,.3);
+    font-size: 18px;
   }
-  .bx-btn-ul li a.cur{
+  .bx-btn-ul li.cur{
+    color: #333;
     background-color: white;
     opacity: 1;
     border: 1px solid #ddd;
+  }
+  .bx-btn-ul li:hover{
+    color: #333;
   }
   .home-flo6{
     width: 100%;
