@@ -99,7 +99,7 @@
             <div class="bx-wrapper">
               <div class="bx-viewport">
                 <ul class="content_list" id="conUl">
-                  <li data-block-id="0" class="item_block">
+                  <li data-block-id="20" class="item_block">
                     <div class="flo-lt-desc">
                       <div class="flo-title">特色服务0</div>
                       <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
@@ -242,8 +242,9 @@
           <div class="flo5-btn">
             <div class="btn-wrapper">
               <span class="bx-prev" id="preCtr"><i class="fa fa-angle-left">上</i></span>
+              <div class="bx-btn-ul-wrap">
               <ul class="bx-btn-ul" id="controlUl">
-                <li data-block-id="0"><span>精准医疗</span></li>
+                <li data-block-id="20"><span>精准医疗</span></li>
                 <li data-block-id="2"><span>健康管理</span></li>
                 <li data-block-id="3"><span>数据监测</span></li>
                 <li data-block-id="5"><span>其它项一</span></li>
@@ -252,6 +253,7 @@
                 <li data-block-id="11"><span>其它项四</span></li>
                 <li data-block-id="12"><span>其它项五</span></li>
               </ul>
+              </div>
               <span class="bx-next" id="nextCtr"><i class="fa fa-angle-right">下</i></span>
             </div>
           </div>
@@ -414,31 +416,80 @@
     },
     mounted() {
       this.initData();
-      //
-      var indexNum = 0; //默认控制按钮cur第一项
-      var defaultShowNum = 3; //默认显示3项
-      var blockItemHeight = $('#controlUl li').height()
-      $(".bx-btn-ul").css({"height":blockItemHeight*3,"overflow":"hidden"})
-      var controlUl = $('#controlUl')
-      var controlUlLi = $('#controlUl li')
-      var indexArr = [];
-      for(let i = 0; i<controlUlLi.length; i++){
-        var datai = $(controlUlLi[i]).attr('data-block-id')
-        indexArr.push(datai)
-      }
-      console.log(indexArr)
-      //根据indexNum值渲染ui
-      function viewUi(indexNum){
-        controlUl.find('li[data-block-id='+indexArr[indexNum]+']').addClass('cur')
+      //==========================================================
+      var controlUl = $('#controlUl'),
+          controlLiArr = $('#controlUl li'),
+          blockId = controlLiArr.first().attr('data-block-id'), //默认全局变量blockId为控制按钮第一项的id...
+          defaultShowNum = 5, //设置显示3块
+          blockItemHeight = controlLiArr.outerHeight(); //单块高
+      $(".bx-btn-ul-wrap").css({"height":blockItemHeight*defaultShowNum,"overflow":"hidden"});
 
+      //blockId数组
+      var idArr = [];
+      for(let i = 0; i<controlLiArr.length; i++){
+        var itemId = $(controlLiArr[i]).attr('data-block-id');
+        idArr.push(itemId)
       }
-      viewUi(indexNum)
+      //根据blockId渲染ui
+      function viewUi(id){
+        //根据传入的blockId样式cur
+        controlUl.find('li').removeClass('cur');
+        controlUl.find('li[data-block-id='+id+']').addClass('cur');
 
-      //注册事件
+        //根据传入的blockId得到它的位置indexNum，再计算偏移量
+        var indexNum = idArr.indexOf(id)+1;
+        var pianyi;
+        var halfShowIAd = Math.ceil(defaultShowNum/2); //默认显示项半值
+        if(indexNum <= halfShowIAd){ //如传入前两项
+          pianyi = 0;
+        }
+        else if(indexNum >= (idArr.length - halfShowIAd)){ //如传入最后两项
+          //pianyi = -(indexNum*blockItemHeight - defaultShowNum*blockItemHeight);
+          pianyi = -(indexNum*blockItemHeight - defaultShowNum*blockItemHeight);
+        }
+        else{
+          pianyi = -(indexNum*blockItemHeight - (Math.ceil(defaultShowNum/2))*blockItemHeight);
+        }
+
+        //点击前两项后两项都不移动，算出个固定值，设置3，3/2上取整
+        //点击前三项后三项都不移动，算出个固定值，设置5，5/2上取整
+
+        /*var indexNum = idArr.indexOf(id)+1, pianyi;
+        if(indexNum == 1){ //传入第一项
+          pianyi = 0;
+        }
+        else if(indexNum == idArr.length){ //传入最后一项
+          pianyi = -(indexNum*blockItemHeight - defaultShowNum*blockItemHeight);
+        }
+        else{
+          pianyi = -(indexNum*blockItemHeight - (Math.ceil(defaultShowNum/2))*blockItemHeight);
+        }*/
+        controlUl.css({"transform":"translateY("+pianyi+"px)"});
+      }
+      viewUi(blockId);
+
+      //点击li改变blockId
       $(document).on('click','#controlUl li',function(){
-        alert($(this).attr('data-block-id'))
+        blockId = $(this).attr('data-block-id');
+        viewUi(blockId)
+      });
+      //点击上翻页
+      $('#preCtr').on('click',function(){
+        var curBlock = controlUl.find('.cur');
+        if(curBlock.prevAll().length > 0){
+          blockId = curBlock.prev().attr('data-block-id');
+          viewUi(blockId);
+        }
+      });
+      //点击下翻页
+      $('#nextCtr').on('click',function(){
+        var curBlock = controlUl.find('.cur');
+        if(curBlock.nextAll().length > 0){
+          blockId = curBlock.next().attr('data-block-id');
+          viewUi(blockId);
+        }
+      });
 
-      })
     },
     methods: {
       initData(){
@@ -719,11 +770,15 @@
   .btn-wrapper{
 
   }
-  .bx-btn-ul{
+  .bx-btn-ul-wrap{
     height: 240px;
     width: 100%;
-    padding: 0;
     overflow: hidden;
+  }
+  .bx-btn-ul{
+    height: 100%;
+    width: 100%;
+    padding: 0;
   }
   .bx-prev, .bx-next, .bx-btn-ul li{
     width: 100%;
