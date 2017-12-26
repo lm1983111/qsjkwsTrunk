@@ -2,7 +2,7 @@
     <div>
       <head-top></head-top>
       <!--swiper-->
-      <div class="home-flo1 home-banner">
+      <div class="home-flo1">
         <swiper :options="swiperOption">
           <swiper-slide v-for="slide in swiperSlides">
             <img :src="slide"/>
@@ -65,7 +65,7 @@
       <!--关于我们-->
       <div class="home-flo3">
         <div class="container">
-          <div class="flo3-left">
+          <div class="l-info">
             <div class="flo-title">关于我们</div>
             <p class="">湖南千山慢病健康管理有限公司 ( 简称“千山健康” ) 是上市公司千山药机 ( 股票代码：300216 ) 控股子公司，公司旗下的千山慢病精准管理与服务中心项目计划总投资50亿元，投资建设期四年，项目建成后，可形成每年为 300 万名慢病患者提供服务的能力。
               公司致力于高血压等慢性病防治与健康管理服务，开发的“千山降压”APP，依托周宏灏院士研发的个体化用药基因检测技术和国内领先的智能血压计等可穿戴设备，能实现对高血压病人的精准用药指导、动态血压监测和健康智能管理。</p>
@@ -82,12 +82,12 @@
       <!--院士研发-->
       <div class="home-flo4">
         <div class="container">
-          <div class="flo4-nav">
+          <div class="r-info">
             <div class="flo-title"> 高血压个体化治疗基因检测</div>
             <p>国内首家注册高血压个体化治疗基因检测芯片</p>
           </div>
           <div class="flo4-con">
-            <div class="flo4-con-text"> 院士研发/专业权威</div>
+            <div class="flo4-con-text">院士研发/专业权威</div>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
           <div class="flo5-con">
             <div class="bx-wrapper">
               <div class="bx-viewport">
-                <ul class="content_list" id="conUl">
+                <ul class="content_list clearfix" id="conUl">
                   <li data-block-id="20" class="item_block">
                     <div class="flo-lt-desc">
                       <div class="flo-title">特色服务0</div>
@@ -263,12 +263,10 @@
       <!--智能可穿戴设备-->
       <div class="home-flo6">
         <div class="container">
-          <div class="section-r-info">
+          <div class="r-info">
             <div class="flo-title">  智能可穿戴医疗设备</div>
             <p class="flo-desc">可以帮助高血压患者实现全天 24 小时血压监测和数据采集，清除监测盲点，帮助患者了解自身血压变化动态有助于患者实现精准服药与血压精准控制</p>
-            <div class="mt45">
-              <a href="" class="f18 red-btn">MORE</a>
-            </div>
+            <router-link to="/products/tonometer" class="btn red-btn btn-size18 mt45">MORE</router-link>
           </div>
           <div class="flo6-con">
             <div class="flo6-con-img">
@@ -279,8 +277,8 @@
       </div>
 
       <!--千山智库-->
-      <div class="home-flo7 chnsun-scholar">
-        <div class="container">
+      <div class="home-flo7">
+        <div class="container home-flo7-container">
           <div class="section-l-info">
             <div class="flo-title">  千山智库</div>
             <p class="flo-desc">以“院士团”“专家团”“博士团”为核心，为慢性病患者
@@ -416,12 +414,12 @@
     },
     mounted() {
       this.initData();
-      //==========================================================
+      //===============================特色服务===============================//
       var controlUl = $('#controlUl'),
-          controlLiArr = $('#controlUl li'),
-          blockId = controlLiArr.first().attr('data-block-id'), //默认全局变量blockId为控制按钮第一项的id...
-          defaultShowNum = 5, //设置显示3块
-          blockItemHeight = controlLiArr.outerHeight(); //单块高
+        controlLiArr = $('#controlUl li'),
+        blockId = controlLiArr.first().attr('data-block-id'), //默认全局变量blockId为控制按钮第一项的id...
+        defaultShowNum = 3, //设置显示3块
+        blockItemHeight = controlLiArr.outerHeight(); //单块高
       $(".bx-btn-ul-wrap").css({"height":blockItemHeight*defaultShowNum,"overflow":"hidden"});
 
       //blockId数组
@@ -439,32 +437,29 @@
         //根据传入的blockId得到它的位置indexNum，再计算偏移量
         var indexNum = idArr.indexOf(id)+1;
         var pianyi;
-        var halfShowIAd = Math.ceil(defaultShowNum/2); //默认显示项半值
-        if(indexNum <= halfShowIAd){ //如传入前两项
+        var halfShowIAd = Math.ceil(defaultShowNum/2); //默认显示项半值加一
+        if(indexNum <= halfShowIAd){ //如传入最前两项
           pianyi = 0;
         }
-        else if(indexNum >= (idArr.length - halfShowIAd)){ //如传入最后两项
-          //pianyi = -(indexNum*blockItemHeight - defaultShowNum*blockItemHeight);
-          pianyi = -(indexNum*blockItemHeight - defaultShowNum*blockItemHeight);
+        else if(indexNum > (idArr.length - halfShowIAd)){ //如传入最后两项
+          pianyi = -(idArr.length*blockItemHeight - defaultShowNum*blockItemHeight);
         }
         else{
-          pianyi = -(indexNum*blockItemHeight - (Math.ceil(defaultShowNum/2))*blockItemHeight);
+          pianyi = -(indexNum*blockItemHeight - halfShowIAd*blockItemHeight);
         }
-
-        //点击前两项后两项都不移动，算出个固定值，设置3，3/2上取整
-        //点击前三项后三项都不移动，算出个固定值，设置5，5/2上取整
-
-        /*var indexNum = idArr.indexOf(id)+1, pianyi;
-        if(indexNum == 1){ //传入第一项
-          pianyi = 0;
-        }
-        else if(indexNum == idArr.length){ //传入最后一项
-          pianyi = -(indexNum*blockItemHeight - defaultShowNum*blockItemHeight);
-        }
-        else{
-          pianyi = -(indexNum*blockItemHeight - (Math.ceil(defaultShowNum/2))*blockItemHeight);
-        }*/
         controlUl.css({"transform":"translateY("+pianyi+"px)"});
+
+        //渲染左侧大块
+        var conUl = $('#conUl'),
+          conLiArr = $('#conUl li'),
+          bigBlockWidth = $('.bx-viewport').outerWidth(),
+          bigPianyi = -(indexNum-1)*bigBlockWidth;
+
+        conUl.css({"width":idArr.length*100+"%"})
+        conUl.find('li').removeClass('cur');
+        conUl.find('li[data-block-id='+id+']').addClass('cur');
+        conUl.css({"transform":"translateX("+bigPianyi+"px)"});
+
       }
       viewUi(blockId);
 
@@ -489,7 +484,9 @@
           viewUi(blockId);
         }
       });
-
+      //===============================特色服务===============================//
+    },
+    watch: {
     },
     methods: {
       initData(){
@@ -509,17 +506,13 @@
 
 <style scoped lang="scss">
   @import "../../style/mixin";
-  .home-banner .swiper-container {
-    height: 515px;
-    width: 100%;
-  }
   @media (min-width: 1200px){
-    .chnsun-scholar .swiper-container{
+    .home-flo7 .swiper-container{
       width: 1170px;
       height: 400px;
     }
   }
-  .chnsun-scholar .swiper-slide {
+  .home-flo7 .swiper-slide {
     text-align: left;
     font-size: 18px;
     background-color: #eee;
@@ -538,6 +531,9 @@
     background-color: #eee;
     padding:80px 0 35px 0;
     height: 600px;
+  }
+  .home-flo7-container{
+    height: auto;
   }
   .swiper-all-wrap{
     position: relative;
@@ -566,14 +562,15 @@
   }
   .swiper-slide .top-block{
     width: 100%;
-    height: 290px;
+    height: 70%;
     overflow: hidden;
   }
   .swiper-slide img{
     width: 100%;
   }
   .swiper-slide .bottom-block{
-    padding:30px 10px;
+    padding: 12% 5%;
+    height: 30%;
   }
   .swiper-slide .bottom-block .title{
     font-size: 18px;
@@ -584,12 +581,6 @@
     font-size: 12px;
     color: #999;
   }
-  /*.scholar-portrait{
-    height: 290px;
-    width: 280px;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }*/
   .home-flo2{
     width: 100%;
     background-color: #fff;
@@ -635,6 +626,12 @@
     float: left;
     display: inline-block;
   }
+  .home-flo3 .l-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 370px;
+  }
   .flo3-right-img-wrap{
     width: 645px;
     height: 290px;
@@ -674,21 +671,27 @@
     padding:80px 0 100px 0;
     height: 600px;
   }
-  .flo4-nav{
+  .home-flo4 .r-info{
     position: absolute;
     top: 0;
     right: 0;
+    width: 370px;
+    text-align: right;
   }
   .flo4-con{
-    text-align: center;
+    height: 100%;
   }
   .flo4-con-text{
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top:-10px;
+    width: 100%;
+    text-align: center;
     font-size: 40px;
     color: #ea1b23;
     font-weight: normal;
     letter-spacing: 50px;
-    top: 190px;
   }
   .home-flo5{
     width: 100%;
@@ -714,7 +717,6 @@
     height: 420px;
   }
   .content_list{
-    width: 715%;
     position: relative;
     transition-duration: 0s;
     transform: translate3d(0px, 0px, 0px);
@@ -830,7 +832,7 @@
     width: 370px;
     text-align: left;
   }
-  .section-r-info{
+  .home-flo6 .r-info{
     position: absolute;
     top: 0;
     right: 0;

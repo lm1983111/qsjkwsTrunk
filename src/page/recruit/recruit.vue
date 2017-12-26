@@ -112,7 +112,7 @@
     height: 20px;
     display: none;
     background: url(../../images/close_btn.png) no-repeat;
-    background-size: 100%;
+    background-size:100% 100%;
   }
   .cur .dt-close{
     display: block;

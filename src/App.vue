@@ -18,7 +18,7 @@ export default {
     height: 260px;
     width: 100%;
     background-position: center;
-    background-size: cover;
+    background-size:100% 100%;
     background-repeat: no-repeat;
   }
   .news-page .common-banner{
