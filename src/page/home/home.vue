@@ -727,12 +727,12 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1025px;
+    width: 930px;
     z-index: 20;
   }
   .bx-wrapper{
     position: relative;
-    max-width: 1025px;
+    max-width: 930px;
     margin: 0 auto;
   }
   .bx-viewport{
@@ -743,8 +743,7 @@
   }
   .content_list{
     position: relative;
-    transition-duration: 0s;
-    transform: translate3d(0px, 0px, 0px);
+    transition: all ease-out .3s;
   }
   .item_block{
     cursor: pointer;
@@ -752,7 +751,7 @@
     float: left;
     list-style: none;
     position: relative;
-    width: 1025px;
+    width: 930px;
     visibility: visible;
     animation-name: fadeInUp;
   }
