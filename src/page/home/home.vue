@@ -241,7 +241,7 @@
           </div>
           <div class="flo5-btn">
             <div class="btn-wrapper">
-              <span class="bx-prev" id="preCtr"><i class="fa fa-angle-left">上</i></span>
+              <span class="bx-prev" id="preCtr"><i class="fa fa-angle-top"></i></span>
               <div class="bx-btn-ul-wrap">
               <ul class="bx-btn-ul" id="controlUl">
                 <li data-block-id="20"><span>精准医疗</span></li>
@@ -254,7 +254,7 @@
                 <li data-block-id="12"><span>其它项五</span></li>
               </ul>
               </div>
-              <span class="bx-next" id="nextCtr"><i class="fa fa-angle-right">下</i></span>
+              <span class="bx-next" id="nextCtr"><i class="fa fa-angle-bottom"></i></span>
             </div>
           </div>
         </div>
@@ -266,7 +266,7 @@
           <div class="r-info">
             <div class="flo-title">  智能可穿戴医疗设备</div>
             <p class="flo-desc">可以帮助高血压患者实现全天 24 小时血压监测和数据采集，清除监测盲点，帮助患者了解自身血压变化动态有助于患者实现精准服药与血压精准控制</p>
-            <router-link to="/products/tonometer" class="btn red-btn btn-size18 mt45">MORE</router-link>
+            <router-link to="/products/tonometer" class="btn red-btn btn-size18 mt45" target="_blank">MORE</router-link>
           </div>
           <div class="flo6-con">
             <div class="flo6-con-img">
@@ -490,10 +490,10 @@
     },
     methods: {
       initData(){
-        this.$http.jsonp(baseUrl + 'banner/getBanner',{jsonpcallback:''}).then(res => {
-          if(res.body.dataList.length> 0){
-            for(let i=0; i<res.body.dataList.length; i++){
-              let datai = res.body.dataList[i];
+        this.$http.jsonp(baseUrl + 'officialWebsite/picList',{jsonpcallback:''}).then(res => {
+          if(res.body.advertisementList.length> 0){
+            for(let i=0; i<res.body.advertisementList.length; i++){
+              let datai = res.body.advertisementList[i];
               this.swiperSlides.push(datai.picUrl)
             }
           }
@@ -506,38 +506,59 @@
 
 <style scoped lang="scss">
   @import "../../style/mixin";
-  @media (min-width: 1200px){
-    .home-flo7 .swiper-container{
-      width: 1170px;
-      height: 400px;
-    }
+  .home-flo1{
+    width: 100%;
   }
-  .home-flo7 .swiper-slide {
-    text-align: left;
-    font-size: 18px;
-    background-color: #eee;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+  .home-flo1 .swiper-container{
+    width: 100%;
   }
   .home-flo7{
     width: 100%;
-    background-color: #eee;
     padding:80px 0 35px 0;
     height: 600px;
+    background-image: url("../../images/flo7_bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
   .home-flo7-container{
     height: auto;
   }
+  .home-flo1 .swiper-button-prev{
+    background-image: url("../../images/left_arrow_homepage.png");
+  }
+  .home-flo1 .swiper-button-next{
+    background-image: url("../../images/right_arrow_homepage.png");
+  }
+  .home-flo1 .swiper-button-prev, .home-flo1 .swiper-button-next{
+    height: 29px;
+    width: 17px;
+    margin-top: -14px;
+    background-size: 17px 29px;
+    background-position: center center;
+  }
+  .home-flo7 .swiper-button-prev{
+    background-image: url("../../images/left_arrow_homepage.png");
+  }
+  .home-flo7 .swiper-button-next{
+    background-image: url("../../images/right_arrow_homepage.png");
+  }
+  .home-flo7 .swiper-button-prev.swiper-button-disabled{
+    background-image: url("../../images/left_arrow_homepage_deep.png");
+  }
+  .home-flo7 .swiper-button-next.swiper-button-disabled{
+    background-image: url("../../images/right_arrow_homepage_deep.png");
+  }
+  .home-flo7 .swiper-button-prev, .home-flo7 .swiper-button-next{
+    height: 29px;
+    width: 17px;
+    margin-top: -14px;
+    background-size: 17px 29px;
+    background-position: center center;
+  }
+
   .swiper-all-wrap{
     position: relative;
-    width: 1375px;
+    width: 1370px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 100px;
@@ -559,6 +580,7 @@
     position: relative;
     display: block;
     background-color: white;
+    align-items: center;
   }
   .swiper-slide .top-block{
     width: 100%;
@@ -702,8 +724,11 @@
     height: 600px;
   }
   .flo5-con{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 1025px;
-    float: left;
+    z-index: 20;
   }
   .bx-wrapper{
     position: relative;
@@ -732,7 +757,7 @@
     animation-name: fadeInUp;
   }
   .item_div_wrapper{
-    margin-top: 35px;
+    margin-top: 25px;
   }
   .item_img{
     width: 450px;
@@ -748,7 +773,7 @@
     width: 390px;
     float: left;
     margin-left: 40px;
-    margin-top: 30px;
+    margin-top: 25px;
   }
   .item_info{
     position: relative;
@@ -764,10 +789,30 @@
     z-index: 3;
   }
   .flo5-btn{
-    width: 240px;
     position: absolute;
     right: 0;
-    top: 80px;
+    top: 0;
+    width: 240px;
+  }
+  .fa-angle-top{
+    display: inline-block;
+    height: 17px;
+    width: 29px;
+    background-image: url("../../images/arrow_top_tese.png");
+    background-repeat: no-repeat;
+    background-size: 29px 17px;
+    background-position: center;
+    margin-top: 30px;
+  }
+  .fa-angle-bottom{
+    display: inline-block;
+    height: 17px;
+    width: 29px;
+    background-image: url("../../images/arrow_bottom_tese.png");
+    background-repeat: no-repeat;
+    background-size: 29px 17px;
+    background-position: center;
+    margin-top: 30px;
   }
   .btn-wrapper{
 
@@ -842,7 +887,8 @@
   .flo-desc{
     line-height: 1.5;
   }
-  .flo-lt-desc{
+  .flo-lt-desc .flo-title{
+    margin-bottom: 10px;
   }
 
   /*vue-carousel*/

@@ -1,14 +1,5 @@
 <template>
   <nav>
-    <!--<ul class="pagination">
-      <li><a href="javascript:;" @click="setCurrent(current-1)"> << </a></li>
-      <li><a href="javascript:;" @click="setCurrent(1)">首页</a></li>
-
-      <li v-for="p in grouplist"><a href="javascript:;" @click="setCurrent(p.val)"> {{ p.text }} </a></li>
-
-      <li><a href="javascript:;" @click="setCurrent(page)">尾页</a></li>
-      <li><a href="javascript:;" @click="setCurrent(current+1)"> >> </a></li>
-    </ul>-->
     <ul class="pagination">
       <li :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(current - 1)"> « </a></li>
       <li :class="{'disabled': current == 1}"><a href="javascript:;" @click="setCurrent(1)"> 首页 </a></li>
@@ -120,6 +111,7 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../style/mixin";
   .pagination {
     overflow: hidden;
     display: table;
@@ -129,15 +121,15 @@
 
     li {
       float: left;
-      height: 30px;
-      border-radius: 5px;
+      height: 40px;
+      border-radius: 0;
       margin: 3px;
       color: #666;
 
       &
       :hover {
-        background: #000;
-
+        background: $red;
+        color: #fff;
         a {
           color: #fff;
         }
@@ -145,18 +137,18 @@
       }
       a {
         display: block;
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         text-align: center;
-        line-height: 30px;
-        font-size: 12px;
-        border-radius: 5px;
+        line-height: 40px;
+        font-size: 14px;
+        border-radius: 0;
         text-decoration: none
       }
 
     }
     .active {
-      background: #000;
+      background: $red;
 
       a {
         color: #fff;

@@ -600,3 +600,19 @@ button.swiper-pagination-bullet {
   /* Windows 8 IE 10 fix */
   -ms-perspective: 1200px;
 }
+
+
+.home-flo1 .swiper-pagination-bullet{
+  width: 60px !important;
+  height: 5px !important;
+  border-radius: 0 !important;
+}
+.home-flo1 .swiper-pagination-bullet-active{
+  background-color: #ffffff;
+}
+.home-flo1 .swiper-container-horizontal > .swiper-pagination-bullets{
+  bottom: 20px;
+}
+.home-flo1 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+  margin: 0 18px;
+}

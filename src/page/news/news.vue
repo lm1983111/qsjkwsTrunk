@@ -9,6 +9,9 @@
     </section>
     <section class="category-nav clearfix">
       <ul class="container category-nav-ul">
+        <li v-on:click="setNewsType(-1)" :class="{'cur': type == -1}">
+          <span>全部</span>
+        </li>
         <li v-for="item in newsType" v-on:click="setNewsType(item.id)" :class="{'cur': type == item.id}">
           <span>{{item.typeName}}</span>
         </li>
@@ -29,19 +32,6 @@
             <div class="right-control"></div>
           </div>
         </li>
-        <!--<li class="news-item cur">
-          <div class="container">
-            <div class="left-date-wrap">
-              <div class="big">07-20</div>
-              <div class="small">2017</div>
-            </div>
-            <div class="center-news-div">
-              <div class="news-title">“千山降压”商城上线 智能血压监测产品全球开售（图）</div>
-              <p class="news-desc">红网长沙7月17日讯 今天上午，千山药机子公司千山健康公司“千山降压”商城上线。用户只需下载“千山降压”APP，登陆“降压商城”便可实现轻松购买千山智能血压监测套装、基因检测套装。</p>
-            </div>
-            <div class="right-control"></div>
-          </div>
-        </li>-->
       </ul>
     </section>
     <section class="pagination-section">
@@ -49,7 +39,6 @@
       <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
     </section>
     <foot-guide></foot-guide>
-    <!--<router-view></router-view>-->
   </div>
 </template>
 
@@ -59,7 +48,6 @@
   import footGuide from '../../components/footer/footGuide'
   import pagination from '../../components/common/pagination'
   import {baseUrl} from "../../config/env";
-
 
   export default {
     components: {
@@ -87,15 +75,15 @@
     },
     methods:{
       getNewsType:function(){
-        this.$http.jsonp(baseUrl+'news/queryAllNewsType',{jsonpcallback:''}).then(res => {
+        this.$http.jsonp(baseUrl+'officialWebsite/allNewsType',{jsonpcallback:''}).then(res => {
           if(res.body.newsTypes.length > 0){
             this.newsType = res.body.newsTypes
-            this.type = res.body.newsTypes[0].id
+            this.type = -1; //全部
           }
         })
       },
       getNewsList:function(){
-        this.$http.jsonp(baseUrl+'news/getNews',{jsonpcallback:'',params:{pageNum:this.pageNum,pageSize:this.pageSize,type:this.type}}).then(res => {
+        this.$http.jsonp(baseUrl+'officialWebsite/newsList',{jsonpcallback:'',params:{pageNum:this.pageNum,pageSize:this.pageSize,newsType:this.type}}).then(res => {
           this.dataList = res.body.dataList
           this.totalCount = res.body.totalCount;
           this.pageNum = res.body.currentPage;
@@ -126,7 +114,7 @@
 
   .news-item{
     background-color: white;
-    padding: 30px 0;
+    padding: 30px 0 60px 0;
     border-bottom: 1px solid #ddd;
   }
   .news-item:hover{
@@ -165,11 +153,15 @@
     color: #999;
   }
   .news-title{
+    display: block;
     cursor: pointer;
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
-  .news-item:hover .news-desc, .news-item:hover .left-date-wrap > div{
-    color: white;
+  .news-item:hover .news-title, .news-item:hover .news-desc, .news-item:hover .left-date-wrap > div{
+    color: white !important;
+  }
+  .pagination-section{
+    padding: 130px 0;
   }
 </style>

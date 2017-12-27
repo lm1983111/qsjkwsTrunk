@@ -31,7 +31,7 @@
     },
     methods:{
       initData(){
-        this.$http.jsonp(baseUrl+'news/detail',{params:{id:this.$route.params.id}}).then(res => {
+        this.$http.jsonp(baseUrl+'officialWebsite/newsDetail',{params:{id:this.$route.params.id}}).then(res => {
           this.newsDetail = res.body.news
           console.log(this.newsDetail.content)
           console.log(typeof (this.newsDetail.content))

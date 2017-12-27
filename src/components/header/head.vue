@@ -44,6 +44,7 @@
     height: 85px;
     line-height: 85px;
     display: inline-block;
+    float: left;
     text-decoration: none;
     color: #666;
     margin-left: 55px;

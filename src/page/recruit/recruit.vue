@@ -3,63 +3,144 @@
     <head-top></head-top>
     <section class="common-banner"></section>
     <section class="news-crumbs">
-      <p class="container crumbs-p">您的位置：首页 > <span class="red">招贤纳士</span></p>
+      <p class="container crumbs-p">您的位置：
+        <router-link to="/home">首页</router-link>
+        > <span class="red">招贤纳士</span></p>
     </section>
     <section class="category-nav clearfix">
       <ul class="container category-nav-ul">
-        <li v-for="" v-on:click="getRecruitList('4')" class="cur">
+        <li v-on:click="setRecruitType(-1)" :class="{'cur': type == -1}">
           <span>全部</span>
         </li>
-        <li v-for="" v-on:click="getRecruitList('4')" :class="">
-          <span>技术类</span>
+        <li v-for="item in recruitType" v-on:click="setRecruitType(item.id)" :class="{'cur': type == item.id}">
+          <span>{{item.typeName}}</span>
         </li>
       </ul>
     </section>
     <section class="recruit-list-section clearfix">
       <div class="container">
         <div class="recruit-header-nav clearfix">
-          <div>职位</div>
-          <div>岗位</div>
+          <div>职位名称</div>
+          <div>职位类别</div>
           <div>任职方式</div>
           <div>地点</div>
         </div>
         <div class="recruit-body">
-          <dl class="recruit-dl cur">
+          <dl class="recruit-dl" v-for="item in dataList">
             <dt class="recruit-dt clearfix">
-              <div class="dt-cell">会计</div>
-              <div class="dt-cell">文职类</div>
-              <div class="dt-cell">全职</div>
-              <div class="dt-cell">佛山</div>
+              <div class="dt-cell">{{item.quarterName}}</div>
+              <div class="dt-cell">{{item.recruitTypeStr}}</div>
+              <div class="dt-cell">{{item.appointmentMethod}}</div>
+              <div class="dt-cell">{{item.address}}</div>
               <div class="dt-close"></div>
             </dt>
             <dd class="recruit-dd">
               <div class="dd-cont-head clearfix">
-                <div class="dd-cont-cell">职业类别：领导类</div>
-                <div class="dd-cont-cell">学历要求：大专</div>
-                <div class="dd-cont-cell">招聘人数：1人</div>
+                <div class="dd-cont-cell">学历要求：{{item.educationalRequirements}}</div>
+                <div class="dd-cont-cell">招聘人数：{{item.number}}人</div>
               </div>
               <div class="recruit-desc clearfix">
-                <p>职位要求：</p>
+                <div v-html="item.jobRequirements"></div>
               </div>
               <div class="apply-job">
-                <a class="f18 red-btn" href="mailto:chnsun300216@126.com">申请该职位</a>
+                <a class="btn red-btn btn-size18" href="mailto:chnsun300216@126.com">申请该职位</a>
               </div>
             </dd>
           </dl>
         </div>
       </div>
     </section>
+    <section class="pagination-section">
+      <v-pagination :total-count = "totalCount" :page-num = "pageNum" @pagechange = 'pagechange'></v-pagination>
+      <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
+    </section>
     <foot-guide></foot-guide>
   </div>
 </template>
 
 <script>
+  import $ from 'jquery'
   import headTop from '../../components/header/head'
   import footGuide from '../../components/footer/footGuide'
+  import pagination from '../../components/common/pagination'
+  import {baseUrl} from "../../config/env";
+
+  //注册dl点击事件
+  $(document).on('click','.recruit-dl',function(){
+    var $this = $(this);
+    if($this.hasClass('cur')){
+      $this.removeClass('cur');
+      $this.find('.recruit-dd').css({"display":"none"})
+    }else{
+      $this.addClass('cur');
+      $this.find('.recruit-dd').css({"display":"block"})
+    }
+  });
+
   export default {
     components: {
       headTop,
-      footGuide
+      footGuide,
+      'v-pagination':pagination
+    },
+    data(){
+      return{
+        totalCount: null,
+        pageSize: 10,
+        pageNum: 1,
+        type:null,
+        recruitType:[],
+        dataList:[],
+      }
+    },
+    mounted(){
+      this.getRecruitType();
+    },
+    watch:{
+      recruitType(){
+        this.getRecruitList()
+      }
+    },
+    methods:{
+      getRecruitType(){
+        this.$http.jsonp(baseUrl+'officialWebsite/allRecruitType',{jsonpcallback:''}).then(res => {
+          if(res.body.recruitTypes.length > 0){
+            this.recruitType = res.body.recruitTypes;
+            this.type = -1
+          }
+        })
+      },
+      getRecruitList:function(){
+        this.$http.jsonp(baseUrl+'officialWebsite/recruitList',{jsonpcallback:'',params:{pageNum:this.pageNum,pageSize:this.pageSize,recruitType:this.type}}).then(res => {
+          this.dataList = res.body.dataList;
+          this.totalCount = res.body.totalCount;
+          this.pageNum = res.body.currentPage;
+        })
+      },
+      setRecruitType(id){
+        this.type = id;
+        this.pageNum = 1;
+        console.log('父组件下发给pagination的pageNum: ',this.pageNum)
+        this.getRecruitList()
+      },
+      pagechange(pageNum){
+        //pageNum就是子组件传过来的this.current
+        console.log('pageNum : ',pageNum)
+        this.pageNum = pageNum;
+        //开始ajax请求..........
+        this.getRecruitList()
+      }
+    },
+    computed: {
+    },
+    filters:{
+      changeTxt(val){
+        // for(var i=0;i<this.recruitType.length;i++){
+        //   if(this.recruitType[i].id===val){
+        //     return  this.recruitType[i].typeName;
+        //   }
+        // }
+      }
     }
   }
 </script>
@@ -113,6 +194,11 @@
     display: none;
     background: url(../../images/close_btn.png) no-repeat;
     background-size:100% 100%;
+    cursor: pointer;
+  }
+  .dt-close:hover{
+    opacity: .7;
+    filter:Alpha(opacity=70)
   }
   .cur .dt-close{
     display: block;
@@ -122,12 +208,19 @@
     color: white !important;
   }
   .recruit-dd{
+    height: 0;
+    display: none;
     border-width:0 2px 2px 2px;
     border-color: $red;
     border-style: solid;
     padding: 50px 80px 60px 50px;
     color: #333;
     font-size: 16px;
+    transition: all 1s;
+  }
+  .cur .recruit-dd{
+    height: auto;
+    display: block;
   }
   .recruit-dd .dd-cont-cell{
     width: 30%;
@@ -137,16 +230,21 @@
   }
   .recruit-desc{
     padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #333 !important;
   }
   .recruit-desc p{
     padding-left: 15px;
     padding-right: 15px;
-    color: #333;
+    color: #333 !important;
   }
   .apply-job{
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 40px;
   }
-
+  .pagination-section{
+    padding: 130px 0;
+  }
 </style>

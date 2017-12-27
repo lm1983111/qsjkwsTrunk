@@ -3,7 +3,9 @@
     <head-top></head-top>
     <section class="common-banner"></section>
     <section class="news-crumbs">
-      <p class="container crumbs-p">您的位置：首页 > <span class="red">关于我们</span></p>
+      <p class="container crumbs-p">您的位置：
+        <router-link to="/home">首页</router-link>
+        > <span class="red">关于我们</span></p>
     </section>
     <div class="container">
       <div class="about-con">
