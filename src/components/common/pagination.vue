@@ -18,7 +18,6 @@
       }
     },
     mounted(){
-      console.log('当前current。。。。。: ',this.current)
     },
     //通过props方法接收父组件下发过来的数据
     props: {
@@ -50,38 +49,26 @@
     },
     computed: {
       page: function(){ //总页数
-        console.log("this.totalCountthis.totalCountthis.totalCount",this.totalCount)
-        console.log("this.pageSize",this.pageSize)
         return Math.ceil(this.totalCount / this.pageSize);
       },
       grouplist: function(){
         var len = this.page, temp = [], list = [], count = Math.floor(this.pagegroup/2), center = this.current;
-        console.log('lenlenlenlenlen:', len)
-        console.log('this.pagegroup:', this.pagegroup)
-        console.log('count:', count)
-        console.log('this.current即center:', this.current)
-        console.log('temp:', temp)
+
         if(len <= this.pagegroup){
-          console.log('页组数大于当前新闻总页数。。。')
           while (len--){
-            console.log('0000')
             temp.push({text: this.page - len, val: this.page - len});
           }
           return temp;
         }
-        console.log('<=---temp:', temp)
         while (len--){
           temp.push(this.page - len);
         }
-        console.log('---temp:', temp)
 
-        console.log('---------------------------------------------处理要显示的页码---------------------------------------------')
+        //console.log('---------------------------------------------处理要显示的页码---------------------------------------------')
         var idx = temp.indexOf(center);
         (idx < count) && ( center = center + count - idx);  //如果&&前面的true才执行&&后面的
         (this.current > this.page - count) && ( center = this.page - count);
-        console.log('center====',center)
         temp = temp.splice(center - count - 1, this.pagegroup);
-        console.log('temptemptemp:',temp)
 
         do {
           var t = temp.shift();
@@ -94,7 +81,6 @@
           (this.current > count + 1) && list.unshift({text: '...', val: list[0].val - 1});
           (this.current < this.page - count) && list.push({text: '...', val: list[list.length - 1].val + 1});
         }
-        console.log('list:',list)
         return list;
       }
     },

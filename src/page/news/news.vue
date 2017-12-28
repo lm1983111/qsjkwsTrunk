@@ -1,43 +1,45 @@
 <template>
   <div class="news-page">
     <head-top></head-top>
-    <section class="common-banner"></section>
-    <section class="news-crumbs">
-      <p class="container crumbs-p">您的位置：
-        <router-link to="/home">首页</router-link>
-        > <span class="red">新闻动态</span></p>
-    </section>
-    <section class="category-nav clearfix">
-      <ul class="container category-nav-ul">
-        <li v-on:click="setNewsType(-1)" :class="{'cur': type == -1}">
-          <span>全部</span>
-        </li>
-        <li v-for="item in newsType" v-on:click="setNewsType(item.id)" :class="{'cur': type == item.id}">
-          <span>{{item.typeName}}</span>
-        </li>
-      </ul>
-    </section>
-    <section class="news-list-section clearfix">
-      <ul class="news-item-wrap">
-        <li class="news-item" v-for="item in dataList">
-          <div class="container">
-            <div class="left-date-wrap">
-              <div class="big">07-20</div>
-              <div class="small">2017</div>
+    <div class="page-con-wrap">
+      <section class="common-banner"></section>
+      <section class="news-crumbs">
+        <p class="container crumbs-p">您的位置：
+          <router-link to="/home">首页</router-link>
+          > <span class="red">新闻动态</span></p>
+      </section>
+      <section class="category-nav clearfix">
+        <ul class="container category-nav-ul">
+          <li v-on:click="setNewsType(-1)" :class="{'cur': type == -1}">
+            <span>全部</span>
+          </li>
+          <li v-for="item in newsType" v-on:click="setNewsType(item.id)" :class="{'cur': type == item.id}">
+            <span>{{item.typeName}}</span>
+          </li>
+        </ul>
+      </section>
+      <section class="news-list-section clearfix">
+        <ul class="news-item-wrap">
+          <li class="news-item" v-for="item in dataList">
+            <div class="container">
+              <div class="left-date-wrap">
+                <div class="big">{{item.createTime | converMonthDate}}</div>
+                <div class="small">{{item.createTime | converYear}}</div>
+              </div>
+              <div class="center-news-div">
+                <router-link :to="'/news/'+item.id" class="news-title" target="_blank">{{item.title}}</router-link>
+                <p class="news-desc">{{item.descr}}</p>
+              </div>
+              <div class="right-control"></div>
             </div>
-            <div class="center-news-div">
-              <router-link :to="'/news/'+item.id" class="news-title" target="_blank">{{item.title}}</router-link>
-              <p class="news-desc">{{item.descr}}</p>
-            </div>
-            <div class="right-control"></div>
-          </div>
-        </li>
-      </ul>
-    </section>
-    <section class="pagination-section">
-      <v-pagination :total-count = "totalCount" :page-num = "pageNum" @pagechange = 'pagechange'></v-pagination>
-      <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
-    </section>
+          </li>
+        </ul>
+      </section>
+      <section class="pagination-section">
+        <v-pagination :total-count = "totalCount" :page-num = "pageNum" @pagechange = 'pagechange'></v-pagination>
+        <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
+      </section>
+    </div>
     <foot-guide></foot-guide>
   </div>
 </template>
@@ -48,6 +50,7 @@
   import footGuide from '../../components/footer/footGuide'
   import pagination from '../../components/common/pagination'
   import {baseUrl} from "../../config/env";
+  import {formatDate} from "../../plugins/util1"
 
   export default {
     components: {
@@ -77,14 +80,14 @@
       getNewsType:function(){
         this.$http.jsonp(baseUrl+'officialWebsite/allNewsType',{jsonpcallback:''}).then(res => {
           if(res.body.newsTypes.length > 0){
-            this.newsType = res.body.newsTypes
+            this.newsType = res.body.newsTypes;
             this.type = -1; //全部
           }
         })
       },
       getNewsList:function(){
         this.$http.jsonp(baseUrl+'officialWebsite/newsList',{jsonpcallback:'',params:{pageNum:this.pageNum,pageSize:this.pageSize,newsType:this.type}}).then(res => {
-          this.dataList = res.body.dataList
+          this.dataList = res.body.dataList;
           this.totalCount = res.body.totalCount;
           this.pageNum = res.body.currentPage;
         })
@@ -92,12 +95,12 @@
       setNewsType:function(id){
         this.type = id;
         this.pageNum = 1;
-        console.log('父组件下发给pagination的pageNum: ',this.pageNum)
+        console.log('父组件下发给pagination的pageNum: ',this.pageNum);
         this.getNewsList()
       },
       pagechange:function(pageNum){
         //pageNum就是子组件传过来的this.current
-        console.log('pageNum : ',pageNum)
+        console.log('pageNum : ',pageNum);
         this.pageNum = pageNum;
         //开始ajax请求..........
         this.getNewsList()
@@ -106,6 +109,16 @@
     computed:{
 
     },
+    filters: {
+      converMonthDate(time){
+        let date = new Date(time);
+        return formatDate(date,'MM-dd');
+      },
+      converYear(time){
+        let date = new Date(time);
+        return formatDate(date,'yyyy');
+      }
+    }
   }
 </script>
 
@@ -113,14 +126,22 @@
   @import "../../style/mixin";
 
   .news-item{
+    position: relative;
     background-color: white;
     padding: 30px 0 60px 0;
     border-bottom: 1px solid #ddd;
+    transition: all .3s;
   }
   .news-item:hover{
     background-color: $red;
     border-bottom-color: $red;
     color: white;
+  }
+  .news-item .container{
+    transition: all .6s;
+  }
+  .news-item:hover .container{
+    transform: translateX(-30px);
   }
   .left-date-wrap{
     width: 290px;
@@ -157,6 +178,7 @@
     cursor: pointer;
     font-size: 20px;
     margin-bottom: 12px;
+    line-height: 1.4;
   }
   .news-item:hover .news-title, .news-item:hover .news-desc, .news-item:hover .left-date-wrap > div{
     color: white !important;

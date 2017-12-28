@@ -41,4 +41,10 @@ export default {
     position: relative;
     top: 30px;
   }
+
+  .data-loading{
+    height: 100%;
+    min-height: 300px;
+    background: url("./images/loading.gif") no-repeat center;
+  }
 </style>

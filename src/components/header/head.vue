@@ -18,14 +18,13 @@
 <script>
   import $ from 'jquery'
   $(window).scroll(function(event){
-    var scrTop = $(window).scrollTop()
-    console.log('scrTop: ',scrTop)
+    let scrTop = $(window).scrollTop();
     if(scrTop>=50){
       $('.header').addClass('mini')
     }else{
       $('.header').removeClass('mini')
     }
-  })
+  });
   export default {
   }
 </script>
@@ -68,7 +67,7 @@
     background-repeat: no-repeat;
   }
   .nav-div{
-    margin-left: 50px;
+    margin-left: 30px;
     float: right;
     height: 64px;
   }

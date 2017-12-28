@@ -1,59 +1,63 @@
 <template>
   <div class="recruit-page">
     <head-top></head-top>
-    <section class="common-banner"></section>
-    <section class="news-crumbs">
-      <p class="container crumbs-p">您的位置：
-        <router-link to="/home">首页</router-link>
-        > <span class="red">招贤纳士</span></p>
-    </section>
-    <section class="category-nav clearfix">
-      <ul class="container category-nav-ul">
-        <li v-on:click="setRecruitType(-1)" :class="{'cur': type == -1}">
-          <span>全部</span>
-        </li>
-        <li v-for="item in recruitType" v-on:click="setRecruitType(item.id)" :class="{'cur': type == item.id}">
-          <span>{{item.typeName}}</span>
-        </li>
-      </ul>
-    </section>
-    <section class="recruit-list-section clearfix">
-      <div class="container">
-        <div class="recruit-header-nav clearfix">
-          <div>职位名称</div>
-          <div>职位类别</div>
-          <div>任职方式</div>
-          <div>地点</div>
+    <div class="page-con-wrap">
+      <section class="common-banner"></section>
+      <section class="news-crumbs">
+        <p class="container crumbs-p">您的位置：
+          <router-link to="/home">首页</router-link>
+          > <span class="red">招贤纳士</span></p>
+      </section>
+      <section class="category-nav clearfix">
+        <ul class="container category-nav-ul">
+          <li v-on:click="setRecruitType(-1)" :class="{'cur': type == -1}">
+            <span>全部</span>
+          </li>
+          <li v-for="item in recruitType" v-on:click="setRecruitType(item.id)" :class="{'cur': type == item.id}">
+            <span>{{item.typeName}}</span>
+          </li>
+        </ul>
+      </section>
+      <section class="recruit-list-section clearfix">
+        <div class="container">
+          <div class="recruit-header-nav clearfix">
+            <div>职位名称</div>
+            <div>职位类别</div>
+            <div>任职方式</div>
+            <div>地点</div>
+          </div>
+          <div class="recruit-body">
+            <dl class="recruit-dl" v-for="item in dataList">
+              <dt class="recruit-dt clearfix">
+                <div class="dt-cell">{{item.quarterName}}</div>
+                <div class="dt-cell">{{item.recruitTypeStr}}</div>
+                <div class="dt-cell">{{item.appointmentMethod}}</div>
+                <div class="dt-cell">{{item.address}}</div>
+                <div class="dt-close"></div>
+              </dt>
+              <dd class="recruit-dd">
+                <div class="recruit-dd-div">
+                  <div class="dd-cont-head clearfix">
+                    <div class="dd-cont-cell">学历要求：{{item.educationalRequirements}}</div>
+                    <div class="dd-cont-cell">招聘人数：{{item.number}}人</div>
+                  </div>
+                  <div class="recruit-desc clearfix">
+                    <div v-html="item.jobRequirements"></div>
+                  </div>
+                  <div class="apply-job">
+                    <a class="btn red-btn btn-size18" href="mailto:chnsun300216@126.com">申请该职位</a>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </div>
         </div>
-        <div class="recruit-body">
-          <dl class="recruit-dl" v-for="item in dataList">
-            <dt class="recruit-dt clearfix">
-              <div class="dt-cell">{{item.quarterName}}</div>
-              <div class="dt-cell">{{item.recruitTypeStr}}</div>
-              <div class="dt-cell">{{item.appointmentMethod}}</div>
-              <div class="dt-cell">{{item.address}}</div>
-              <div class="dt-close"></div>
-            </dt>
-            <dd class="recruit-dd">
-              <div class="dd-cont-head clearfix">
-                <div class="dd-cont-cell">学历要求：{{item.educationalRequirements}}</div>
-                <div class="dd-cont-cell">招聘人数：{{item.number}}人</div>
-              </div>
-              <div class="recruit-desc clearfix">
-                <div v-html="item.jobRequirements"></div>
-              </div>
-              <div class="apply-job">
-                <a class="btn red-btn btn-size18" href="mailto:chnsun300216@126.com">申请该职位</a>
-              </div>
-            </dd>
-          </dl>
-        </div>
-      </div>
-    </section>
-    <section class="pagination-section">
-      <v-pagination :total-count = "totalCount" :page-num = "pageNum" @pagechange = 'pagechange'></v-pagination>
-      <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
-    </section>
+      </section>
+      <section class="pagination-section">
+        <v-pagination :total-count = "totalCount" :page-num = "pageNum" @pagechange = 'pagechange'></v-pagination>
+        <!--@pagechange是在子组件中定义的事件名称，触发父组件里的pagechange函数-->
+      </section>
+    </div>
     <foot-guide></foot-guide>
   </div>
 </template>
@@ -69,12 +73,19 @@
   $(document).on('click','.recruit-dl',function(){
     var $this = $(this);
     if($this.hasClass('cur')){
-      $this.removeClass('cur');
-      $this.find('.recruit-dd').css({"display":"none"})
+      $this.find('.recruit-dd').slideUp(300,function(){
+        $this.removeClass('cur');
+      })
     }else{
       $this.addClass('cur');
-      $this.find('.recruit-dd').css({"display":"block"})
+      $this.find('.recruit-dd').slideDown(300)
     }
+  });
+  $(document).on('click','.dt-close',function(){
+    var $this = $(this).parents('.recruit-dl');
+    $this.find('.recruit-dd').slideUp(300,function(){
+      $this.removeClass('cur');
+    })
   });
 
   export default {
@@ -208,8 +219,14 @@
     color: white !important;
   }
   .recruit-dd{
-    height: 0;
     display: none;
+    overflow: hidden;
+  }
+  .cur .recruit-dd{
+    /*display: block;*/
+    height: auto;
+  }
+  .recruit-dd-div{
     border-width:0 2px 2px 2px;
     border-color: $red;
     border-style: solid;
@@ -218,16 +235,14 @@
     font-size: 16px;
     transition: all 1s;
   }
-  .cur .recruit-dd{
-    height: auto;
-    display: block;
-  }
-  .recruit-dd .dd-cont-cell{
+  .recruit-dd-div .dd-cont-cell{
     width: 30%;
     padding-left: 15px;
     padding-right: 15px;
     float: left;
   }
+
+
   .recruit-desc{
     padding-top: 40px;
     padding-left: 15px;

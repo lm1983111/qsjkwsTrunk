@@ -99,7 +99,7 @@ p{
   margin-left: auto;
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .container {
     width: 750px
   }
@@ -115,6 +115,9 @@ p{
   .container {
     width: 1170px
   }
+}*/
+.container {
+  width: 1170px
 }
 
 

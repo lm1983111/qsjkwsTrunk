@@ -1,19 +1,21 @@
 <template>
   <div class="products-item-page">
     <head-top></head-top>
-    <div class="products-item-img-div">
-      <img src="../../images/prowatch/pro_watch_02.jpg"/>
-      <img src="../../images/prowatch/pro_watch_03.jpg"/>
-      <img src="../../images/prowatch/pro_watch_04.jpg"/>
-      <img src="../../images/prowatch/pro_watch_05.jpg"/>
-      <img src="../../images/prowatch/pro_watch_06.jpg"/>
-      <img src="../../images/prowatch/pro_watch_07.jpg"/>
-      <img src="../../images/prowatch/pro_watch_08.jpg"/>
-      <img src="../../images/prowatch/pro_watch_09.jpg"/>
-      <img src="../../images/prowatch/pro_watch_10.jpg"/>
-      <img src="../../images/prowatch/pro_watch_11.jpg"/>
-      <img src="../../images/prowatch/pro_watch_12.jpg"/>
-      <img src="../../images/prowatch/pro_watch_13.jpg"/>
+    <div class="page-con-wrap">
+      <div class="products-item-img-div">
+        <img src="../../images/prowatch/pro_watch_02.jpg"/>
+        <img src="../../images/prowatch/pro_watch_03.jpg"/>
+        <img src="../../images/prowatch/pro_watch_04.jpg"/>
+        <img src="../../images/prowatch/pro_watch_05.jpg"/>
+        <img src="../../images/prowatch/pro_watch_06.jpg"/>
+        <img src="../../images/prowatch/pro_watch_07.jpg"/>
+        <img src="../../images/prowatch/pro_watch_08.jpg"/>
+        <img src="../../images/prowatch/pro_watch_09.jpg"/>
+        <img src="../../images/prowatch/pro_watch_10.jpg"/>
+        <img src="../../images/prowatch/pro_watch_11.jpg"/>
+        <img src="../../images/prowatch/pro_watch_12.jpg"/>
+        <img src="../../images/prowatch/pro_watch_13.jpg"/>
+      </div>
     </div>
     <foot-guide></foot-guide>
   </div>

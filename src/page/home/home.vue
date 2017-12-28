@@ -1,360 +1,362 @@
 <template>
     <div>
       <head-top></head-top>
-      <!--swiper-->
-      <div class="home-flo1">
-        <swiper :options="swiperOption">
-          <swiper-slide v-for="slide in swiperSlides">
-            <img :src="slide"/>
-          </swiper-slide>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination" slot="pagination"></div>
-          <!-- Add Pagination -->
-          <div class="swiper-button-next" slot="button-next"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-        </swiper>
-      </div>
-
-      <!--千山健康慢病管理与服务平台-->
-      <div class="home-flo2">
-        <div class="container">
-          <div class="flo-title center">千山健康慢病管理与服务平台</div>
-          <p class="center">千山健康慢病管理与服务平台</p>
-          <div class="home-flo2-con">
-            <div class="flo2-item">
-              <div>
-                <img src="../../images/flo2_gene.png"/>
-              </div>
-              <div>
-                <p class="flo-title2">高血压个体化基因检测</p>
-                <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
-              </div>
-            </div>
-            <div class="flo2-item">
-              <div>
-                <img src="../../images/flo2_watch.png"/>
-              </div>
-              <div>
-                <p class="flo-title2">高血压个体化基因检测</p>
-                <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
-              </div>
-            </div>
-            <div class="flo2-item">
-              <div>
-                <img src="../../images/flo2_doctor.png"/>
-              </div>
-              <div>
-                <p class="flo-title2">高血压个体化基因检测</p>
-                <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
-              </div>
-            </div>
-            <div class="flo2-item">
-              <div>
-                <img src="../../images/flo2_data.png"/>
-              </div>
-              <div>
-                <p class="flo-title2">高血压个体化基因检测</p>
-                <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!--关于我们-->
-      <div class="home-flo3">
-        <div class="container">
-          <div class="l-info">
-            <div class="flo-title">关于我们</div>
-            <p class="">湖南千山慢病健康管理有限公司 ( 简称“千山健康” ) 是上市公司千山药机 ( 股票代码：300216 ) 控股子公司，公司旗下的千山慢病精准管理与服务中心项目计划总投资50亿元，投资建设期四年，项目建成后，可形成每年为 300 万名慢病患者提供服务的能力。
-              公司致力于高血压等慢性病防治与健康管理服务，开发的“千山降压”APP，依托周宏灏院士研发的个体化用药基因检测技术和国内领先的智能血压计等可穿戴设备，能实现对高血压病人的精准用药指导、动态血压监测和健康智能管理。</p>
-          </div>
-          <div class="flo3-right-img-wrap">
-            <div><img src="../../images/chnsun_factory.jpg"/></div>
-            <p class="">千山慢病精准管理与服务中心</p>
-          </div>
-          <div class="flo3-right-squire">
-          </div>
-        </div>
-      </div>
-
-      <!--院士研发-->
-      <div class="home-flo4">
-        <div class="container">
-          <div class="r-info">
-            <div class="flo-title"> 高血压个体化治疗基因检测</div>
-            <p>国内首家注册高血压个体化治疗基因检测芯片</p>
-          </div>
-          <div class="flo4-con">
-            <div class="flo4-con-text">院士研发/专业权威</div>
-          </div>
-        </div>
-      </div>
-
-      <!--特色服务-->
-      <div class="home-flo5">
-        <div class="container">
-          <div class="flo5-con">
-            <div class="bx-wrapper">
-              <div class="bx-viewport">
-                <ul class="content_list clearfix" id="conUl">
-                  <li data-block-id="20" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务0</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="2" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务2</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="3" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务3</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="5" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务5</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="7" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务7</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="8" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务8</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="11" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务11</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li data-block-id="12" class="item_block">
-                    <div class="flo-lt-desc">
-                      <div class="flo-title">特色服务12</div>
-                      <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
-                    </div>
-                    <div class="item_div_wrapper clearfix">
-                      <div class="item_img">
-                        <img src="../../images/flo5_item1.jpg"/>
-                      </div>
-                      <div class="item_wrapper">
-                        <div class="item_info">
-                          <p class="flo-title2">精准医疗</p>
-                          <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="flo5-btn">
-            <div class="btn-wrapper">
-              <span class="bx-prev" id="preCtr"><i class="fa fa-angle-top"></i></span>
-              <div class="bx-btn-ul-wrap">
-              <ul class="bx-btn-ul" id="controlUl">
-                <li data-block-id="20"><span>精准医疗</span></li>
-                <li data-block-id="2"><span>健康管理</span></li>
-                <li data-block-id="3"><span>数据监测</span></li>
-                <li data-block-id="5"><span>其它项一</span></li>
-                <li data-block-id="7"><span>其它项二</span></li>
-                <li data-block-id="8"><span>其它项三</span></li>
-                <li data-block-id="11"><span>其它项四</span></li>
-                <li data-block-id="12"><span>其它项五</span></li>
-              </ul>
-              </div>
-              <span class="bx-next" id="nextCtr"><i class="fa fa-angle-bottom"></i></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--智能可穿戴设备-->
-      <div class="home-flo6">
-        <div class="container">
-          <div class="r-info">
-            <div class="flo-title">  智能可穿戴医疗设备</div>
-            <p class="flo-desc">可以帮助高血压患者实现全天 24 小时血压监测和数据采集，清除监测盲点，帮助患者了解自身血压变化动态有助于患者实现精准服药与血压精准控制</p>
-            <router-link to="/products/tonometer" class="btn red-btn btn-size18 mt45" target="_blank">MORE</router-link>
-          </div>
-          <div class="flo6-con">
-            <div class="flo6-con-img">
-              <img src="../../images/flo6_products.png"/>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--千山智库-->
-      <div class="home-flo7">
-        <div class="container home-flo7-container">
-          <div class="section-l-info">
-            <div class="flo-title">  千山智库</div>
-            <p class="flo-desc">以“院士团”“专家团”“博士团”为核心，为慢性病患者
-              提供专业的健康管理服务，帮助患者回归健康、轻松生活。</p>
-          </div>
-        </div>
-        <div class="swiper-all-wrap">
-          <swiper :options="swiperOption2">
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar1.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
+      <div class="page-con-wrap">
+        <!--swiper-->
+        <div class="home-flo1">
+          <swiper :options="swiperOption" class="data-loading">
+            <swiper-slide v-for="slide in swiperSlides">
+              <img :src="slide"/>
             </swiper-slide>
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar2.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar3.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar4.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar4.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar4.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
-            </swiper-slide>
-            <swiper-slide>
-              <div class="top-block">
-                <img src="../../images/scholar4.jpg"/>
-              </div>
-              <div class="bottom-block">
-                <div class="title">周宏灏</div>
-                <div class="desc">中国工程院士</div>
-              </div>
-            </swiper-slide>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination" slot="pagination"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next" slot="button-next"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
           </swiper>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
         </div>
 
+        <!--千山健康慢病管理与服务平台-->
+        <div class="home-flo2">
+          <div class="container">
+            <div class="flo-title center">千山健康慢病管理与服务平台</div>
+            <p class="center">千山健康慢病管理与服务平台</p>
+            <div class="home-flo2-con">
+              <div class="flo2-item">
+                <div>
+                  <img src="../../images/flo2_gene.png"/>
+                </div>
+                <div>
+                  <p class="flo-title2">高血压个体化基因检测</p>
+                  <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
+                </div>
+              </div>
+              <div class="flo2-item">
+                <div>
+                  <img src="../../images/flo2_watch.png"/>
+                </div>
+                <div>
+                  <p class="flo-title2">高血压个体化基因检测</p>
+                  <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
+                </div>
+              </div>
+              <div class="flo2-item">
+                <div>
+                  <img src="../../images/flo2_doctor.png"/>
+                </div>
+                <div>
+                  <p class="flo-title2">高血压个体化基因检测</p>
+                  <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
+                </div>
+              </div>
+              <div class="flo2-item">
+                <div>
+                  <img src="../../images/flo2_data.png"/>
+                </div>
+                <div>
+                  <p class="flo-title2">高血压个体化基因检测</p>
+                  <p class="">精准精准定位高血压用药种类，帮助患者选对药，用准药。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--关于我们-->
+        <div class="home-flo3">
+          <div class="container">
+            <div class="l-info">
+              <div class="flo-title">关于我们</div>
+              <p class="">湖南千山慢病健康管理有限公司 ( 简称“千山健康” ) 是上市公司千山药机 ( 股票代码：300216 ) 控股子公司，公司旗下的千山慢病精准管理与服务中心项目计划总投资50亿元，投资建设期四年，项目建成后，可形成每年为 300 万名慢病患者提供服务的能力。
+                公司致力于高血压等慢性病防治与健康管理服务，开发的“千山降压”APP，依托周宏灏院士研发的个体化用药基因检测技术和国内领先的智能血压计等可穿戴设备，能实现对高血压病人的精准用药指导、动态血压监测和健康智能管理。</p>
+            </div>
+            <div class="flo3-right-img-wrap">
+              <div><img src="../../images/chnsun_factory.jpg"/></div>
+              <p class="">千山慢病精准管理与服务中心</p>
+            </div>
+            <div class="flo3-right-squire">
+            </div>
+          </div>
+        </div>
+
+        <!--院士研发-->
+        <div class="home-flo4">
+          <div class="container">
+            <div class="r-info">
+              <div class="flo-title"> 高血压个体化治疗基因检测</div>
+              <p>国内首家注册高血压个体化治疗基因检测芯片</p>
+            </div>
+            <div class="flo4-con">
+              <div class="flo4-con-text">院士研发/专业权威</div>
+            </div>
+          </div>
+        </div>
+
+        <!--特色服务-->
+        <div class="home-flo5">
+          <div class="container">
+            <div class="flo5-con">
+              <div class="bx-wrapper">
+                <div class="bx-viewport">
+                  <ul class="content_list clearfix" id="conUl">
+                    <li data-block-id="20" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务0</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="2" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务2</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="3" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务3</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="5" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务5</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="7" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务7</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="8" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务8</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="11" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务11</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li data-block-id="12" class="item_block">
+                      <div class="flo-lt-desc">
+                        <div class="flo-title">特色服务12</div>
+                        <p>为慢病患者提供专业、稳定、持续的慢病健康管理服务，造福慢病患者</p>
+                      </div>
+                      <div class="item_div_wrapper clearfix">
+                        <div class="item_img">
+                          <img src="../../images/flo5_item1.jpg"/>
+                        </div>
+                        <div class="item_wrapper">
+                          <div class="item_info">
+                            <p class="flo-title2">精准医疗</p>
+                            <p style="margin-top:70px">专业医疗团队对患者进行科学评估，提供精准治疗解决方案</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="flo5-btn">
+              <div class="btn-wrapper">
+                <span class="bx-prev" id="preCtr"><i class="fa fa-angle-top"></i></span>
+                <div class="bx-btn-ul-wrap">
+                  <ul class="bx-btn-ul" id="controlUl">
+                    <li data-block-id="20"><span>精准医疗</span></li>
+                    <li data-block-id="2"><span>健康管理</span></li>
+                    <li data-block-id="3"><span>数据监测</span></li>
+                    <li data-block-id="5"><span>其它项一</span></li>
+                    <li data-block-id="7"><span>其它项二</span></li>
+                    <li data-block-id="8"><span>其它项三</span></li>
+                    <li data-block-id="11"><span>其它项四</span></li>
+                    <li data-block-id="12"><span>其它项五</span></li>
+                  </ul>
+                </div>
+                <span class="bx-next" id="nextCtr"><i class="fa fa-angle-bottom"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--智能可穿戴设备-->
+        <div class="home-flo6">
+          <div class="container">
+            <div class="r-info">
+              <div class="flo-title">  智能可穿戴医疗设备</div>
+              <p class="flo-desc">可以帮助高血压患者实现全天 24 小时血压监测和数据采集，清除监测盲点，帮助患者了解自身血压变化动态有助于患者实现精准服药与血压精准控制</p>
+              <router-link to="/products/tonometer" class="btn red-btn btn-size18 mt45" target="_blank">MORE</router-link>
+            </div>
+            <div class="flo6-con">
+              <div class="flo6-con-img">
+                <img src="../../images/flo6_products.png"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--千山智库-->
+        <div class="home-flo7">
+          <div class="container home-flo7-container">
+            <div class="section-l-info">
+              <div class="flo-title">  千山智库</div>
+              <p class="flo-desc">以“院士团”“专家团”“博士团”为核心，为慢性病患者
+                提供专业的健康管理服务，帮助患者回归健康、轻松生活。</p>
+            </div>
+          </div>
+          <div class="swiper-all-wrap">
+            <swiper :options="swiperOption2">
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar1.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar2.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar3.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar4.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar4.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar4.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="top-block">
+                  <img src="../../images/scholar4.jpg"/>
+                </div>
+                <div class="bottom-block">
+                  <div class="title">周宏灏</div>
+                  <div class="desc">中国工程院士</div>
+                </div>
+              </swiper-slide>
+            </swiper>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+          </div>
+
+        </div>
       </div>
       <foot-guide></foot-guide>
     </div>
@@ -602,6 +604,9 @@
   .swiper-slide .bottom-block .desc{
     font-size: 12px;
     color: #999;
+  }
+  .data-loading{
+    min-height: auto;
   }
   .home-flo2{
     width: 100%;

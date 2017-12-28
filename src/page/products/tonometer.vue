@@ -1,15 +1,17 @@
 <template>
   <div class="products-item-page">
     <head-top></head-top>
-    <div class="products-item-img-div">
-      <img src="../../images/protonometer/pro_tonometer_02.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_03.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_04.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_05.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_06.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_07.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_08.jpg"/>
-      <img src="../../images/protonometer/pro_tonometer_09.jpg"/>
+    <div class="page-con-wrap">
+      <div class="products-item-img-div">
+        <img src="../../images/protonometer/pro_tonometer_02.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_03.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_04.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_05.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_06.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_07.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_08.jpg"/>
+        <img src="../../images/protonometer/pro_tonometer_09.jpg"/>
+      </div>
     </div>
     <foot-guide></foot-guide>
   </div>

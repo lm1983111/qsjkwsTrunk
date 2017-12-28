@@ -1,12 +1,14 @@
 <template>
   <div class="news-detail-page">
     <head-top></head-top>
-    <div class="container">
-      <div class="news-detail-header">
-        <div class="news-detail-title">{{newsDetail.title}}</div>
-        <div>发布时间：<span>{{newsDetail.createTime}}</span></div>
+    <div class="page-con-wrap">
+      <div class="container data-loading">
+        <div class="news-detail-header">
+          <div class="news-detail-title">{{newsDetail.title}}</div>
+          <div>发布时间：<span>{{newsDetail.createTime | converTime}}</span></div>
+        </div>
+        <div v-html="newsDetail.content"></div>
       </div>
-      <div v-html="newsDetail.content"></div>
     </div>
     <foot-guide></foot-guide>
   </div>
@@ -16,6 +18,8 @@
   import headTop from '../../components/header/head'
   import footGuide from '../../components/footer/footGuide'
   import {baseUrl} from "../../config/env";
+  import {formatDate} from "../../plugins/util1";
+
   export default {
     components: {
       headTop,
@@ -37,6 +41,12 @@
           console.log(typeof (this.newsDetail.content))
         })
       }
+    },
+    filters: {
+      converTime(time){
+        let date = new Date(time);
+        return formatDate(date,'yyyy-MM-dd')
+      }
     }
   }
 </script>
@@ -51,5 +61,8 @@
   .news-detail-title{
     font-size: 20px;
     margin-bottom: 20px;
+  }
+  .data-loading{
+    min-height: 300px;
   }
 </style>
