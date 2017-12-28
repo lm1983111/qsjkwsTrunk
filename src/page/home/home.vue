@@ -73,7 +73,7 @@
             </div>
             <div class="flo3-right-img-wrap">
               <div><img src="../../images/chnsun_factory.jpg"/></div>
-              <p class="">千山慢病精准管理与服务中心</p>
+              <p style="font-size: 12px">千山慢病精准管理与服务中心</p>
             </div>
             <div class="flo3-right-squire">
             </div>
@@ -451,6 +451,16 @@
         }
         controlUl.css({"transform":"translateY("+pianyi+"px)"});
 
+        //控制按钮加样式disabled
+        if(indexNum == 1){
+          $('#preCtr').addClass('disabled');
+        }else if(indexNum == idArr.length){
+          $('#nextCtr').addClass('disabled');
+        }else{
+          $('#nextCtr').removeClass('disabled');
+          $('#preCtr').removeClass('disabled');
+        }
+
         //渲染左侧大块
         var conUl = $('#conUl'),
           conLiArr = $('#conUl li'),
@@ -525,18 +535,21 @@
   .home-flo7-container{
     height: auto;
   }
+  .home-flo1 .swiper-button-prev, .home-flo1 .swiper-button-next{
+    height: 60px;
+    width: 60px;
+    margin-top: -30px;
+    background-size: 17px 29px;
+    background-position: center center;
+    background-color: rgba(0,0,0,.5);
+  }
   .home-flo1 .swiper-button-prev{
+    left: 0;
     background-image: url("../../images/left_arrow_homepage.png");
   }
   .home-flo1 .swiper-button-next{
+    right: 0;
     background-image: url("../../images/right_arrow_homepage.png");
-  }
-  .home-flo1 .swiper-button-prev, .home-flo1 .swiper-button-next{
-    height: 29px;
-    width: 17px;
-    margin-top: -14px;
-    background-size: 17px 29px;
-    background-position: center center;
   }
   .home-flo7 .swiper-button-prev{
     background-image: url("../../images/left_arrow_homepage.png");
@@ -748,7 +761,7 @@
   }
   .content_list{
     position: relative;
-    transition: all ease-out .3s;
+    transition: all .6s;
   }
   .item_block{
     cursor: pointer;
@@ -802,7 +815,7 @@
     display: inline-block;
     height: 17px;
     width: 29px;
-    background-image: url("../../images/arrow_top_tese.png");
+    background-image: url("../../images/arrow_top_tese_deep.png");
     background-repeat: no-repeat;
     background-size: 29px 17px;
     background-position: center;
@@ -812,11 +825,14 @@
     display: inline-block;
     height: 17px;
     width: 29px;
-    background-image: url("../../images/arrow_bottom_tese.png");
+    background-image: url("../../images/arrow_bottom_tese_deep.png");
     background-repeat: no-repeat;
     background-size: 29px 17px;
     background-position: center;
     margin-top: 30px;
+  }
+  .bx-prev.disabled, .bx-next.disabled, .bx-prev.disabled:hover, .bx-next.disabled:hover{
+    background: rgba(255,255,255,0.4);
   }
   .btn-wrapper{
 
@@ -830,6 +846,7 @@
     height: 100%;
     width: 100%;
     padding: 0;
+    transition: all .6s;
   }
   .bx-prev, .bx-next, .bx-btn-ul li{
     width: 100%;
@@ -840,10 +857,17 @@
     background: rgba(255,255,255,0.4);
     cursor: pointer;
     box-sizing:border-box;
+    transition: all .3s;
   }
   .bx-prev:hover, .bx-next:hover{
     background-color: #ea1b23;
     opacity: 1;
+  }
+  .bx-prev:hover i, .bx-prev.disabled i{
+    background-image: url("../../images/arrow_top_tese.png");
+  }
+  .bx-next:hover i, .bx-next.disabled i{
+    background-image: url("../../images/arrow_bottom_tese.png");
   }
   .bx-btn-ul li{
     color: #666;
