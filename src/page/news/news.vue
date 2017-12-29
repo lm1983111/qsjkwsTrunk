@@ -8,8 +8,8 @@
           <router-link to="/home">首页</router-link>
           > <span class="red">新闻动态</span></p>
       </section>
-      <section class="category-nav clearfix">
-        <ul class="container category-nav-ul">
+      <section class="category-nav">
+        <ul class="container category-nav-ul clearfix">
           <li v-on:click="setNewsType(-1)" :class="{'cur': type == -1}">
             <span>全部</span>
           </li>
@@ -138,10 +138,10 @@
     color: white;
   }
   .news-item .container{
-    transition: all .6s;
+    transition: all .4s;
   }
   .news-item:hover .container{
-    transform: translateX(-30px);
+    transform: translateX(-40px);
   }
   .left-date-wrap{
     width: 290px;
@@ -159,6 +159,10 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
+    transition: all .4s;
+  }
+  .news-item:hover .right-control{
+    transform: translateX(60px);
   }
   .center-news-div{
     padding: 7px 150px 0 340px;

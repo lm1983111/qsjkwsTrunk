@@ -8,8 +8,8 @@
           <router-link to="/home">首页</router-link>
           > <span class="red">招贤纳士</span></p>
       </section>
-      <section class="category-nav clearfix">
-        <ul class="container category-nav-ul">
+      <section class="category-nav">
+        <ul class="container category-nav-ul clearfix">
           <li v-on:click="setRecruitType(-1)" :class="{'cur': type == -1}">
             <span>全部</span>
           </li>
@@ -190,6 +190,13 @@
   .recruit-dt .dt-cell{
     float: left;
     width: 25%;
+  }
+  .recruit-header-nav > div{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #999;
   }
   .recruit-header-nav > div, .recruit-dt .dt-cell{
     text-overflow: ellipsis;

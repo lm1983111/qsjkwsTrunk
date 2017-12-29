@@ -101,14 +101,19 @@
   .products-block{
     background-color: white;
     position: relative;
-    transition: all .3s;
+    transition-property: background-color, color;
+    transition-duration: .3s;
   }
   .products-item:hover .products-block{
     color: white;
     background-color: $red;
   }
   .products-info{
-    padding: 20px 60px 20px 25px;
+    padding: 20px 0 20px 0;
+    transition: transform .6s;
+  }
+  .products-item:hover .products-info{
+    transform: translateX(25px);
   }
   .products-info .title{
     font-size: 16px;
@@ -119,11 +124,15 @@
     height: 30px;
     position: absolute;
     top: 50%;
-    right: 4%;
+    right: 12%;
     margin-top: -15px;
     background-image:url("../../images/arrow-right.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
+    transition: transform .6s;
+  }
+  .products-item:hover .products-arrow{
+    transform: translateX(25px);
   }
 </style>
